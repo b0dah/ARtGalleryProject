@@ -13,7 +13,10 @@
 		BC11F72E244B505A00734F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC11F72D244B505A00734F60 /* Assets.xcassets */; };
 		BC11F731244B505A00734F60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC11F72F244B505A00734F60 /* LaunchScreen.storyboard */; };
 		BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F738244C5D2300734F60 /* ExplorationViewController.swift */; };
-		BC11F73B244C644900734F60 /* MuseumSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F73A244C644900734F60 /* MuseumSelectionViewController.swift */; };
+		BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */; };
+		BC11F777244EEBA600734F60 /* Museum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F775244EEBA600734F60 /* Museum.swift */; };
+		BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */; };
+		BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +28,10 @@
 		BC11F730244B505A00734F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC11F732244B505A00734F60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC11F738244C5D2300734F60 /* ExplorationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationViewController.swift; sourceTree = "<group>"; };
-		BC11F73A244C644900734F60 /* MuseumSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumSelectionViewController.swift; sourceTree = "<group>"; };
+		BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		BC11F775244EEBA600734F60 /* Museum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Museum.swift; sourceTree = "<group>"; };
+		BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumSelectionViewController.swift; sourceTree = "<group>"; };
+		BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,59 @@
 		BC11F723244B505600734F60 /* ARtGallery */ = {
 			isa = PBXGroup;
 			children = (
-				BC11F724244B505600734F60 /* AppDelegate.swift */,
-				BC11F726244B505600734F60 /* SceneDelegate.swift */,
+				BC11F778244EEF2300734F60 /* ViewControllers */,
+				BC11F77E244EEF7300734F60 /* TableViewCells */,
+				BC11F774244EEBA600734F60 /* Models */,
 				BC11F72A244B505600734F60 /* Main.storyboard */,
-				BC11F73A244C644900734F60 /* MuseumSelectionViewController.swift */,
-				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BC11F72D244B505A00734F60 /* Assets.xcassets */,
+				BC11F771244EE7E700734F60 /* Delegates */,
+				BC11F772244EEBA600734F60 /* Extensions */,
 				BC11F72F244B505A00734F60 /* LaunchScreen.storyboard */,
 				BC11F732244B505A00734F60 /* Info.plist */,
 			);
 			path = ARtGallery;
+			sourceTree = "<group>";
+		};
+		BC11F771244EE7E700734F60 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BC11F724244B505600734F60 /* AppDelegate.swift */,
+				BC11F726244B505600734F60 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		BC11F772244EEBA600734F60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BC11F774244EEBA600734F60 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC11F775244EEBA600734F60 /* Museum.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC11F778244EEF2300734F60 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
+				BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BC11F77E244EEF7300734F60 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +190,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */,
 				BC11F725244B505600734F60 /* AppDelegate.swift in Sources */,
+				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,
+				BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */,
 				BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */,
+				BC11F777244EEBA600734F60 /* Museum.swift in Sources */,
 				BC11F727244B505600734F60 /* SceneDelegate.swift in Sources */,
-				BC11F73B244C644900734F60 /* MuseumSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

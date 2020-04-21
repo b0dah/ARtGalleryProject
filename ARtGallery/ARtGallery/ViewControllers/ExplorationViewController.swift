@@ -13,12 +13,17 @@ class ExplorationViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
     
+    var museum: Museum?
     
     // Fields
     private let configuration = ARWorldTrackingConfiguration()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let museum = museum {
+            print(museum.name + " situated in " + museum.city)
+        }
         
         // sceneView conf
         sceneView.showsStatistics = true
