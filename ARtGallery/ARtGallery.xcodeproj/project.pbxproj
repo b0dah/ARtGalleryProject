@@ -17,6 +17,9 @@
 		BC11F777244EEBA600734F60 /* Museum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F775244EEBA600734F60 /* Museum.swift */; };
 		BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */; };
 		BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */; };
+		BCD19784244F227F00530CE3 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19783244F227F00530CE3 /* Painting.swift */; };
+		BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */; };
+		BCD19788244F7EDC00530CE3 /* PaintingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		BC11F775244EEBA600734F60 /* Museum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Museum.swift; sourceTree = "<group>"; };
 		BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumSelectionViewController.swift; sourceTree = "<group>"; };
 		BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
+		BCD19783244F227F00530CE3 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingsCollectionViewController.swift; sourceTree = "<group>"; };
+		BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				BC11F775244EEBA600734F60 /* Museum.swift */,
+				BCD19783244F227F00530CE3 /* Painting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 			children = (
 				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */,
+				BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */,
+				BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -190,11 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */,
 				BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */,
 				BC11F725244B505600734F60 /* AppDelegate.swift in Sources */,
 				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,
+				BCD19784244F227F00530CE3 /* Painting.swift in Sources */,
 				BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */,
 				BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */,
+				BCD19788244F7EDC00530CE3 /* PaintingTableViewCell.swift in Sources */,
 				BC11F777244EEBA600734F60 /* Museum.swift in Sources */,
 				BC11F727244B505600734F60 /* SceneDelegate.swift in Sources */,
 			);
