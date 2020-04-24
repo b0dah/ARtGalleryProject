@@ -19,6 +19,7 @@
 		BC6538172451E2AC008B0063 /* ARSessionStateHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */; };
 		BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */; };
 		BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */; };
+		BC65381F245321B3008B0063 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65381E245321B3008B0063 /* Constants.swift */; };
 		BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */; };
 		BCD19784244F227F00530CE3 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19783244F227F00530CE3 /* Painting.swift */; };
 		BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */; };
@@ -40,6 +41,7 @@
 		BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionStateHandlerExtension.swift; sourceTree = "<group>"; };
 		BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionHandlingExtension.swift; sourceTree = "<group>"; };
 		BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectsForRegognizedImageExtension.swift; sourceTree = "<group>"; };
+		BC65381E245321B3008B0063 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
 		BCD19783244F227F00530CE3 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		BC11F723244B505600734F60 /* ARtGallery */ = {
 			isa = PBXGroup;
 			children = (
+				BC65381D2453218D008B0063 /* Values */,
 				BC6538152451E242008B0063 /* ARSceneStuff */,
 				BC11F778244EEF2300734F60 /* ViewControllers */,
 				BC11F77E244EEF7300734F60 /* TableViewCells */,
@@ -143,6 +146,14 @@
 				BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */,
 			);
 			path = ARSceneStuff;
+			sourceTree = "<group>";
+		};
+		BC65381D2453218D008B0063 /* Values */ = {
+			isa = PBXGroup;
+			children = (
+				BC65381E245321B3008B0063 /* Constants.swift */,
+			);
+			path = Values;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */,
+				BC65381F245321B3008B0063 /* Constants.swift in Sources */,
 				BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */,
 				BC11F725244B505600734F60 /* AppDelegate.swift in Sources */,
 				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,

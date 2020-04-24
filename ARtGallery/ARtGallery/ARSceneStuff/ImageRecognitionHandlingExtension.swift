@@ -28,6 +28,8 @@ extension ExplorationViewController {
         }
         
         let referenceImage = imageAnchor.referenceImage
+        let imagePhysicalSize = referenceImage.physicalSize
+        
         let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
         plane.firstMaterial?.diffuse.contents = UIColor.cyan
         
@@ -38,15 +40,15 @@ extension ExplorationViewController {
         planeNode.runAction(highlightPaintingAction)
         node.addChildNode(planeNode)
         
-        let titleNode = createPaintingTitleNode(paintingName: referenceImage.name!)
+        let titleNode = createPaintingTitleNode(paintingName: referenceImage.name!, paintingSize: imagePhysicalSize)
         node.addChildNode(titleNode)
         
         let description = "George Nick\n2011\nNick comments: In the beginning, I always felt I couldn't remake the world but I would like to try."
-        let descriptionNode = createPaintingDescriptionNode(description: description)
+        let descriptionNode = createPaintingDescriptionNode(description: description, paintingSize: imagePhysicalSize)
         node.addChildNode(descriptionNode)
         
         let authorName = "George Nick"
-        let authorNode = createAuthorNode(authorName: authorName)
+        let authorNode = createAuthorNode(authorName: authorName, size: imagePhysicalSize)
         node.addChildNode(authorNode)
     }
     
