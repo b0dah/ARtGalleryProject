@@ -60,49 +60,4 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    // MARK:- ARSCNViewDelegate
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor else {
-            return
-        }
-        
-        print("Painting detected!")
-        DispatchQueue.main.async {
-            self.feedbackLabel.text = "Painting Detected!"
-        }
-        
-        let referenceImage = imageAnchor.referenceImage
-        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-        plane.firstMaterial?.diffuse.contents = UIColor.cyan
-        
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.3
-        planeNode.eulerAngles.x = -Float.pi/2
-        
-        planeNode.runAction(highlightPaintingAction)
-        node.addChildNode(planeNode)
-        
-        let titleNode = createPaintingTitleNode(paintingName: referenceImage.name!)
-        node.addChildNode(titleNode)
-        
-    }
-    
-    var highlightPaintingAction: SCNAction {
-        return .sequence([ .fadeIn(duration: 1.0), .wait(duration: 0.5), .fadeOut(duration: 1.0), .removeFromParentNode()])
-    }
-    
-    
-    //MARK: - Text Creation Functionality
-    private func createPaintingTitleNode(paintingName: String) -> SCNNode {
-        let title = SCNText(string: paintingName, extrusionDepth: 0.5)
-        let titleNode = SCNNode(geometry: title)
-        
-        titleNode.scale = SCNVector3(0.003, 0.003, 0.002)
-        titleNode.position = SCNVector3(0,0,0)
-        titleNode.eulerAngles.x = -Float.pi/2
-        return titleNode
-    }
-    
-    
 }
