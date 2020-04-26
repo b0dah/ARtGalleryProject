@@ -28,12 +28,9 @@ extension ExplorationViewController {
         let titleNode = SCNNode(geometry: title)
         
         let xPosition = -paintingSize.width/2.0
-        let zPosition = -paintingSize.height/2.0-Constants.scenePaddingWidth
+        let zPosition = -paintingSize.height/2.0-Constants.scenePaddingWidth        
         
-        
-        
-        titleNode.position = SCNVector3(xPosition,0,zPosition)
-        
+        titleNode.position = SCNVector3(xPosition, 0, zPosition)
         titleNode.scale = SCNVector3(0.0015, 0.0015, 0.002)
 //    titleNode.pivot = SCNMatrix4MakeTranslation(0, 0, 0)
        titleNode.eulerAngles.x = -Float.pi/2
@@ -82,6 +79,63 @@ extension ExplorationViewController {
         let authorNodeZPosition = -size.height/2.0 + size.height/scaleCoefficient/2.0
         imageNode.position = SCNVector3(authorNodeXPosition, 0.005, authorNodeZPosition)
             
+        return imageNode
+    }
+    
+    func createAnimation(paintingSize: CGSize) -> SCNNode {
+        
+        // painting
+        let paintingFrame = CGRect(x: 100, y: 100, width: 200, height: 250)
+        let paintingView = UIView(frame: paintingFrame)
+        paintingView.backgroundColor = .black
+        
+        // flare
+        let flareFrame = CGRect(x: 0, y: 0, width: 700, height: 20)
+        let flare = UIView(frame: flareFrame)
+        flare.backgroundColor = .white
+        
+        // blur
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+
+        blurView.frame = paintingView.bounds
+        blurView.autoresizingMask = [ .flexibleWidth, .flexibleHeight]
+//        self.view.insertSubview(blurView, at: 0)
+//        blurView.alpha = 0.8
+
+        
+        // set up scene
+        paintingView.addSubview(flare)
+        paintingView.addSubview(blurView)
+        let rotateTransform = CGAffineTransform(rotationAngle: .pi/6)
+        flare.transform = rotateTransform
+        
+        
+        
+        // animate
+        UIView.animate(withDuration: 1.5, animations: {
+            let translateTransform = CGAffineTransform(translationX: 0, y: paintingView.frame.height)
+            flare.transform = translateTransform
+        })
+        {
+            (_) in UIView.animate(withDuration: 1.5, animations: {
+                let translateTransform = CGAffineTransform(translationX: 0, y: -paintingView.frame.height)
+                flare.transform = translateTransform.concatenating(rotateTransform)
+            })
+        }
+        
+        // material
+        let material = SCNMaterial()
+        material.diffuse.contents = paintingView
+        
+        //
+        let imageGeometry = SCNPlane(width: paintingSize.width, height: paintingSize.height)
+        imageGeometry.materials = [material]
+        
+        //
+        let imageNode = SCNNode(geometry: imageGeometry)
+        imageNode.eulerAngles.x = -.pi/2.0
+        
         return imageNode
     }
 }
