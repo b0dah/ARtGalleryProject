@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
+    # Page requests
     url(r'^admin/', admin.site.urls),
+    
+    # API requests
+    path('api/', include('Gallery.app_urls'))
 ]

@@ -122,8 +122,8 @@
 		BC11F778244EEF2300734F60 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */,
+				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */,
 			);
 			path = ViewControllers;

@@ -25,7 +25,7 @@ SECRET_KEY = 'a6fw(3j18iuh)^imt-f$6i&hcfxvil#v(_!!hd05x=ae1+@l!n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']#['127.0.0.1', 'localhost', 'ivans-macbook-pro.local']
 
 
 # Application definition
