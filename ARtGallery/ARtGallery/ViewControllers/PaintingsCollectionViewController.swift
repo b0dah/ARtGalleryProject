@@ -13,7 +13,7 @@ class PaintingsCollectionViewController: UITableViewController {
     let paintings = [
     Painting(title: "Art", author: "George Corominas", year: 1998),
     Painting(title: "A Commander in Chief's Tribute to America's Warriors", author: "George W. Bush", year: 2010),
-    Painting(title: "The World is Flat Painters' Table", author: "George Nick", year: 1975),
+    Painting(title: "The World is Flat", author: "George Nick", year: 1975),
     Painting(title: "Not Titled", author: "Gheorghe Virtosu", year: 2019),
     Painting(title: "Natura morta con Caraffe e tubo", author: "Georges Braque", year: 1934)
     ]
