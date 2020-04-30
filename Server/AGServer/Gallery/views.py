@@ -15,7 +15,7 @@ class PaintingView(APIView):
 		# return the whole list of paintings
 		serializer = PaintingSerializer(queryset, many = True)
 		
-		if museumId is not None: # return on;y related to the corresponding museum
+		if museumId is not None: # return only related to the corresponding museum
 			museumsPaintings = queryset.filter(id=museumId)
 			serializer = PaintingSerializer(museumsPaintings, many = True)
 		

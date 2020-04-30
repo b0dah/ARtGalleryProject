@@ -8,14 +8,22 @@
 
 import Foundation
 
-class Museum {
-    var imageName: String
+class FetchedObject: Codable {
+    var museums: [Museum]
+}
+
+class Museum: Codable {
+    var id: Int
     var name: String
+    var country: String
     var city: String
+    var imagePath: String
     
-    init(name: String, city: String) {
-        self.imageName = name.filter {!$0.isWhitespace} + ".jpg"
+    init(id: Int, name: String, country: String, city: String, imagePath: String) {
+        self.id = id
         self.name = name
+        self.country = country
         self.city = city
+        self.imagePath = imagePath
     }
 }

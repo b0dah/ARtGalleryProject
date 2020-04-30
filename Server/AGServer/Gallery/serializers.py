@@ -5,7 +5,7 @@ from .models import Museum, Artist, Painting
 class ArtistSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Artist
-		fields = ['id', 'name', 'yearsOfLife', 'country', 'portraitImageTitle']
+		fields = ['id', 'name', 'yearsOfLife', 'country', 'portraitImagePath']
 
 class PaintingSerializer(serializers.ModelSerializer):
 		
@@ -17,7 +17,7 @@ class PaintingSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Painting
 		
-		fields = ('id', 'title', 'year', 'description', 'genre', 'imageTitle', 'museum_id', 'author')
+		fields = ('id', 'title', 'year', 'description', 'genre', 'imagePath', 'museum_id', 'author')
 	
 	def create(self, validated_data):
 		return Paiting.objects.create(**validated_data)
@@ -28,4 +28,4 @@ class MuseumSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Museum 
 		
-		fields = ['id', 'name', 'country', 'city', 'imageTitle']
+		fields = ['id', 'name', 'country', 'city', 'imagePath']

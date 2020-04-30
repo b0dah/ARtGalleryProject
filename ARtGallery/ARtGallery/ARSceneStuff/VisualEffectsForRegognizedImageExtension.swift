@@ -28,7 +28,7 @@ extension ExplorationViewController {
         let titleNode = SCNNode(geometry: title)
         
         let xPosition = -paintingSize.width/2.0
-        let zPosition = -paintingSize.height/2.0-Constants.scenePaddingWidth        
+        let zPosition = -paintingSize.height/2.0 - ARConstants.scenePaddingWidth
         
         titleNode.position = SCNVector3(xPosition, 0, zPosition)
         titleNode.scale = SCNVector3(0.0015, 0.0015, 0.002)
@@ -42,7 +42,7 @@ extension ExplorationViewController {
         let descriptionNode = SCNNode(geometry: descriptionTextGeometry)
         
         // position
-        let xPosition = paintingSize.width/2.0 + Constants.scenePaddingWidth
+        let xPosition = paintingSize.width/2.0 + ARConstants.scenePaddingWidth
         
         descriptionNode.scale = SCNVector3(0.0008, 0.0008, 0.001)
         descriptionNode.position = SCNVector3(xPosition, 0, 0.0)
@@ -75,7 +75,7 @@ extension ExplorationViewController {
         let imageNode = SCNNode(geometry: imageGeometry)
         imageNode.eulerAngles.x = -.pi/2.0
         
-        let authorNodeXPosition = size.width/2.0 + size.width/scaleCoefficient/2.0 + Constants.scenePaddingWidth
+        let authorNodeXPosition = size.width/2.0 + size.width/scaleCoefficient/2.0 + ARConstants.scenePaddingWidth
         let authorNodeZPosition = -size.height/2.0 + size.height/scaleCoefficient/2.0
         imageNode.position = SCNVector3(authorNodeXPosition, 0.005, authorNodeZPosition)
             

@@ -16,4 +16,25 @@ extension UIImageView {
         self.layer.cornerRadius = self.frame.width / 2
         self.clipsToBounds = true
     }
+    
+    func downloadImage(from url: String) {
+        
+        guard let url = URL(string: url) else {
+            print("Wrong IMAGE URL!")
+            return
+        }
+           
+       URLSession.shared.dataTask(with: url) { (data, response, error) in
+           guard let data = data, error == nil else {
+               return
+           }
+               
+            print("download finished")
+//            print(response?.suggestedFilename!)
+               
+               DispatchQueue.main.async {
+                self.image = UIImage(data: data)
+               }
+           }.resume()
+       }
 }

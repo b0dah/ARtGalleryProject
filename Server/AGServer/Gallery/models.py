@@ -7,7 +7,7 @@ class Museum(models.Model):
 	name = models.CharField(max_length = 300)
 	country = models.CharField(max_length = 100)
 	city = models.CharField(max_length = 100)
-	imageTitle = models.CharField(max_length = 300)
+	imagePath = models.CharField(max_length = 300)
 	
 	def __str__(self):
 		return self.name + ', ' + self.city + ', ' + self.country
@@ -17,7 +17,7 @@ class Artist(models.Model):
 	name = models.CharField(max_length = 120)
 	yearsOfLife = models.CharField(max_length = 20)
 	country = models.CharField(max_length = 100)
-	portraitImageTitle = models.CharField(max_length = 300)
+	portraitImagePath = models.CharField(max_length = 300)
 	
 	def __str__(self):
 		return str(self.id) + '  ' + self.name
@@ -35,7 +35,7 @@ class Painting(models.Model):
 	title = models.CharField(max_length = 255)
 	year = models.CharField(max_length = 4)
 	description = models.CharField(max_length = 1000)
-	imageTitle = models.CharField(max_length = 300)
+	imagePath = models.CharField(max_length = 300)
 	
 	#Foreign Keys:
 	author = models.ForeignKey(Artist, on_delete = models.SET_NULL, null=True)
