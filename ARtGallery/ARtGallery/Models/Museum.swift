@@ -17,13 +17,17 @@ class Museum: Codable {
     var name: String
     var country: String
     var city: String
-    var imagePath: String
+    var description: String
+    var logoImagePath: String
+    var appearenceImagePath: String
     
-    init(id: Int, name: String, country: String, city: String, imagePath: String) {
+    init(id: Int, name: String, country: String, city: String, description: String, logoImagePath: String, appearenceImagePath: String) {
         self.id = id
         self.name = name
         self.country = country
         self.city = city
-        self.imagePath = imagePath
+        self.description = description
+        self.logoImagePath = logoImagePath
+        self.appearenceImagePath = appearenceImagePath
     }
 }

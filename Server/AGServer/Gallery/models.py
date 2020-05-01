@@ -8,7 +8,8 @@ class Museum(models.Model):
 	country = models.CharField(max_length = 100)
 	city = models.CharField(max_length = 100)
 	description = models.CharField(max_length = 2000)
-	imagePath = models.CharField(max_length = 300)
+	logoImagePath = models.CharField(max_length = 300)
+	appearenceImagePath = models.CharField(max_length = 300)
 	
 	def __str__(self):
 		return self.name + ', ' + self.city + ', ' + self.country

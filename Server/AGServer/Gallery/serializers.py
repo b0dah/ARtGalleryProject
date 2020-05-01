@@ -28,4 +28,4 @@ class MuseumSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Museum 
 		
-		fields = ['id', 'name', 'country', 'city', 'description', 'imagePath']
+		fields = ['id', 'name', 'country', 'city', 'description', 'logoImagePath', 'appearenceImagePath']

@@ -29,7 +29,7 @@ class MuseumTableViewCell: UITableViewCell {
     
     func updateUI(with museum: Museum) {
 
-        self.pictureView.downloadImage(from: Constants.museumsLogosPath + museum.imagePath)
+        self.pictureView.downloadImage(from: Constants.museumsLogosPath + museum.logoImagePath)
         
         pictureView.makeRounded()
         backView.layer.cornerRadius = pictureView.frame.width/8

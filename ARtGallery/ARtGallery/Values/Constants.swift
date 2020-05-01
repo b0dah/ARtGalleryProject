@@ -17,6 +17,7 @@ enum Constants {
     // API Resourcs Pathes
     static let serverStaticResorceFolderPath = serverURL + "static/"
     static let museumsLogosPath = serverStaticResorceFolderPath + "museums_logos/"
+    static let museumsAppearencesPath = serverStaticResorceFolderPath + "museums_appearences/"
     static let artistsPortraitsPath = serverStaticResorceFolderPath + "artists_portraits/"
     static let paintingsReproductionsPath = serverStaticResorceFolderPath + "paintings_reproductions/"
 }
