@@ -10,11 +10,23 @@ import UIKit
 
 class MuseumDetailsViewController: UIViewController {
     
+    @IBOutlet weak var detailImage: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var downloadResourcesButton: UIButton!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     var museum: Museum?
     var museumAssetCatalogName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+
+
         
         guard let museum = museum else {
             print("No museum passed!")
