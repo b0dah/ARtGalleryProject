@@ -26,6 +26,7 @@
 		BCD19788244F7EDC00530CE3 /* PaintingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */; };
 		BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */; };
 		BCFEAC1D245B2C4400FC8FC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */; };
+		BCFEAC1F245C2DB700FC8FC7 /* MuseumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingTableViewCell.swift; sourceTree = "<group>"; };
 		BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMuseumListExtension.swift; sourceTree = "<group>"; };
 		BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */,
+				BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */,
 				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */,
 			);
@@ -252,6 +255,7 @@
 				BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */,
 				BCD19784244F227F00530CE3 /* Painting.swift in Sources */,
 				BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */,
+				BCFEAC1F245C2DB700FC8FC7 /* MuseumDetailsViewController.swift in Sources */,
 				BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */,
 				BCD19788244F7EDC00530CE3 /* PaintingTableViewCell.swift in Sources */,
 				BC11F777244EEBA600734F60 /* Museum.swift in Sources */,

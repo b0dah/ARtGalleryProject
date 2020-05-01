@@ -7,6 +7,7 @@ class Museum(models.Model):
 	name = models.CharField(max_length = 300)
 	country = models.CharField(max_length = 100)
 	city = models.CharField(max_length = 100)
+	description = models.CharField(max_length = 2000)
 	imagePath = models.CharField(max_length = 300)
 	
 	def __str__(self):
@@ -36,6 +37,8 @@ class Painting(models.Model):
 	year = models.CharField(max_length = 4)
 	description = models.CharField(max_length = 1000)
 	imagePath = models.CharField(max_length = 300)
+	physicalWidth = models.FloatField()
+	physicalHeight = models.FloatField()
 	
 	#Foreign Keys:
 	author = models.ForeignKey(Artist, on_delete = models.SET_NULL, null=True)

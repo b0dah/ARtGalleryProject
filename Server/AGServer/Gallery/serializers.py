@@ -17,7 +17,7 @@ class PaintingSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Painting
 		
-		fields = ('id', 'title', 'year', 'description', 'genre', 'imagePath', 'museum_id', 'author')
+		fields = ('id', 'title', 'year', 'description', 'genre', 'imagePath', 'physicalWidth', 'physicalHeight', 'museum_id', 'author')
 	
 	def create(self, validated_data):
 		return Paiting.objects.create(**validated_data)
@@ -28,4 +28,4 @@ class MuseumSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Museum 
 		
-		fields = ['id', 'name', 'country', 'city', 'imagePath']
+		fields = ['id', 'name', 'country', 'city', 'description', 'imagePath']

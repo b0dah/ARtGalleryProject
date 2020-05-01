@@ -59,7 +59,7 @@ class MuseumSelectionTableViewController: UITableViewController {
     
     // MARK: Table View Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "PresentMuseum", sender: self)
+        performSegue(withIdentifier: "PresentMuseumDetails", sender: self)
     }
 //
 //    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) { // REORDERING
@@ -69,15 +69,16 @@ class MuseumSelectionTableViewController: UITableViewController {
 //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "PresentMuseum" else {
+        guard segue.identifier == "PresentMuseumDetails" else {
             print("NOT A PASS DATA SEGUE")
             return
         }
+        
         print("A PASS DATA SEGUE")
         let indexPath = tableView.indexPathForSelectedRow!
         let museum = museums[indexPath.row]
         
-        if let destination = segue.destination as? ExplorationViewController {
+        if let destination = segue.destination as? MuseumDetailsViewController {
             destination.museum = museum
         }
     }
