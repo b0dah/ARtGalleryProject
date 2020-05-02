@@ -33,7 +33,7 @@ class PaintingTableViewCell: UITableViewCell {
         pictureView.image = UIImage(named: painting.imageTitle)
         titleLabel.text = painting.title + ", " + String(painting.year)
         
-        authorLabel.text = painting.author
+        authorLabel.text = "CHANGE IT"//painting.author
         
     }
 

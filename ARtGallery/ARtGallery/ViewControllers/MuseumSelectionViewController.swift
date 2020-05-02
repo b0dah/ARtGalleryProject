@@ -30,7 +30,7 @@ class MuseumSelectionTableViewController: UITableViewController {
 //        self.tableView.rowHeight = UITableView.automaticDimension
         
         // fetch data from API
-        fetchMuseumList()
+        fetchMuseumList(url: Constants.museumsListAPIEndpoint)
     }
     
     // setting table view controller

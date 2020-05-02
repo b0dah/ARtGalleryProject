@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FetchedObject: Codable {
+class FetchedMuseumsObject: Codable {
     var museums: [Museum]
 }
 
@@ -18,16 +18,16 @@ class Museum: Codable {
     var country: String
     var city: String
     var description: String
-    var logoImagePath: String
-    var appearenceImagePath: String
+    var logoImageTitle: String
+    var appearenceImageTitle: String
     
-    init(id: Int, name: String, country: String, city: String, description: String, logoImagePath: String, appearenceImagePath: String) {
+    init(id: Int, name: String, country: String, city: String, description: String, logoImageTitle: String, appearenceImageTitle: String) {
         self.id = id
         self.name = name
         self.country = country
         self.city = city
         self.description = description
-        self.logoImagePath = logoImagePath
-        self.appearenceImagePath = appearenceImagePath
+        self.logoImageTitle = logoImageTitle
+        self.appearenceImageTitle = appearenceImageTitle
     }
 }

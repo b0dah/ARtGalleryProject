@@ -10,9 +10,14 @@ import UIKit
 
 extension MuseumSelectionTableViewController {
     
-    func fetchMuseumList() {
+    func fetchMuseumList(url: String) {
         
-        URLSession.shared.dataTask(with: Constants.museumsListAPIEndpoint) { (data, response, error) in
+        guard let url = URL(string: url) else {
+            print("WRONG Endpoint URL for the museums list")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             guard let data = data, error == nil, response != nil else {
                 print("http request error!")
@@ -20,11 +25,11 @@ extension MuseumSelectionTableViewController {
             }
                         
             do {
-                let stringData = String(data: data, encoding: .utf8)
+//                let stringData = String(data: data, encoding: .utf8)
 //                print(stringData)
                 let jsonDecoder = JSONDecoder()
                 
-                let fetchedObject = try jsonDecoder.decode(FetchedObject.self, from: data)
+                let fetchedObject = try jsonDecoder.decode(FetchedMuseumsObject.self, from: data)
                 
                 self.museums = fetchedObject.museums
                 

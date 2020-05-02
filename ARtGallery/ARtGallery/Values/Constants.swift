@@ -12,7 +12,8 @@ enum Constants {
     static let serverURL = "http://IvansMacBookPro.local:8000/"
     
     //API Endpoints URLs
-    static let museumsListAPIEndpoint = URL(string: serverURL + "api/museums")!
+    static let museumsListAPIEndpoint = serverURL + "api/museums"
+    static let paintingListForPArticularMuseumEndpoint = serverURL + "api/paintings"
     
     // API Resourcs Pathes
     static let serverStaticResorceFolderPath = serverURL + "static/"

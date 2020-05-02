@@ -8,16 +8,32 @@
 
 import Foundation
 
-class Painting {
+class FetchedPaintingsObject: Codable {
+    var paintings: [Painting]
+}
+
+class Painting: Codable {
+    var id: Int
     var title: String
-    var author: String
     var year: Int
+    var description: String
+    var author: Artist
+    var genre: String
+    var museumId: Int
     var imageTitle: String
+    var physicalWidth: Double
+    var physicalHeight: Double
     
-    init(title: String, author: String, year: Int) {
+    init(id: Int, title: String, year: Int, description: String, author: Artist, genre: String, museumId: Int, imageTitle: String, physicalWidth: Double, physicalHeight: Double) {
+        self.id = id
         self.title = title
-        self.author = author
         self.year = year
-        self.imageTitle = author + " - " + title + ".jpg"
+        self.author = author
+        self.genre = genre
+        self.museumId = museumId
+        self.description = description
+        self.imageTitle = imageTitle
+        self.physicalWidth = physicalWidth
+        self.physicalHeight = physicalHeight
     }
 }

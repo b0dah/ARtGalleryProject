@@ -20,6 +20,10 @@
 		BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */; };
 		BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */; };
 		BC65381F245321B3008B0063 /* ARConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65381E245321B3008B0063 /* ARConstants.swift */; };
+		BC8AC5E5245DC0E30039CB67 /* FetchPaintingsListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5E4245DC0E30039CB67 /* FetchPaintingsListExtension.swift */; };
+		BC8AC5E7245DC7570039CB67 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5E6245DC7570039CB67 /* URLExtension.swift */; };
+		BC8AC5E9245DD0CE0039CB67 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5E8245DD0CE0039CB67 /* Artist.swift */; };
+		BCCA8A2D245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */; };
 		BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */; };
 		BCD19784244F227F00530CE3 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19783244F227F00530CE3 /* Painting.swift */; };
 		BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */; };
@@ -45,6 +49,10 @@
 		BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionHandlingExtension.swift; sourceTree = "<group>"; };
 		BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectsForRegognizedImageExtension.swift; sourceTree = "<group>"; };
 		BC65381E245321B3008B0063 /* ARConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARConstants.swift; sourceTree = "<group>"; };
+		BC8AC5E4245DC0E30039CB67 /* FetchPaintingsListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPaintingsListExtension.swift; sourceTree = "<group>"; };
+		BC8AC5E6245DC7570039CB67 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		BC8AC5E8245DD0CE0039CB67 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDynamicDetectionImageSet.swift; sourceTree = "<group>"; };
 		BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
 		BCD19783244F227F00530CE3 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */,
+				BC8AC5E6245DC7570039CB67 /* URLExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 			children = (
 				BC11F775244EEBA600734F60 /* Museum.swift */,
 				BCD19783244F227F00530CE3 /* Painting.swift */,
+				BC8AC5E8245DD0CE0039CB67 /* Artist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 				BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */,
 				BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */,
 				BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */,
+				BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */,
 			);
 			path = ARSceneStuff;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */,
+				BC8AC5E4245DC0E30039CB67 /* FetchPaintingsListExtension.swift */,
 			);
 			path = DataFetchingAndAPI;
 			sourceTree = "<group>";
@@ -248,12 +260,16 @@
 				BC65381F245321B3008B0063 /* ARConstants.swift in Sources */,
 				BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */,
 				BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */,
+				BCCA8A2D245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift in Sources */,
+				BC8AC5E7245DC7570039CB67 /* URLExtension.swift in Sources */,
+				BC8AC5E9245DD0CE0039CB67 /* Artist.swift in Sources */,
 				BC11F725244B505600734F60 /* AppDelegate.swift in Sources */,
 				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,
 				BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */,
 				BCFEAC1D245B2C4400FC8FC7 /* Constants.swift in Sources */,
 				BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */,
 				BCD19784244F227F00530CE3 /* Painting.swift in Sources */,
+				BC8AC5E5245DC0E30039CB67 /* FetchPaintingsListExtension.swift in Sources */,
 				BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */,
 				BCFEAC1F245C2DB700FC8FC7 /* MuseumDetailsViewController.swift in Sources */,
 				BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */,

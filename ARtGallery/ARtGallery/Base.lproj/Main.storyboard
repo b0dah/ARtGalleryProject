@@ -302,9 +302,12 @@
                                                             <constraint firstAttribute="height" constant="50" id="bUf-I8-uSw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <state key="normal" title="Download">
+                                                        <state key="normal" title="Download AR resources">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="downloadResourcesButtonTapped:" destination="SJv-ur-53U" eventType="touchUpInside" id="15K-wB-GSv"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -347,6 +350,7 @@
                         <outlet property="locationLabel" destination="vvl-Sg-zRc" id="hqr-CN-OYU"/>
                         <outlet property="logoImageView" destination="1Nb-i1-wcv" id="6XY-wJ-FcD"/>
                         <outlet property="nameLabel" destination="cjI-it-CKF" id="MVw-6b-4jC"/>
+                        <segue destination="uRO-M5-GMh" kind="presentation" identifier="PresentExplorationMode" id="mwy-xv-xg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wz-B5-Lyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -375,11 +379,11 @@
             <objects>
                 <viewController id="uRO-M5-GMh" customClass="ExplorationViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bTB-1k-nVb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aH-LZ-fr6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are instructions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAc-3X-2xe">
                                 <rect key="frame" x="10" y="10" width="355" height="21.5"/>
@@ -411,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0j-Gf-1iq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8338.3999999999996" y="1783.3583208395803"/>
+            <point key="canvasLocation" x="3425" y="1785"/>
         </scene>
     </scenes>
     <resources>
