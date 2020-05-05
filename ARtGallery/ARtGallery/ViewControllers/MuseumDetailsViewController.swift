@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARKit
 
 class MuseumDetailsViewController: UIViewController {
     
@@ -20,16 +21,48 @@ class MuseumDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     // Class Fields
-    var paintings = [Painting]()
-    var referenceImages = [UIImage]()
-    
+    var paintings : [Painting]?
+    var referenceImages = [ARReferenceImage]()
     
     var museum: Museum?
     var museumAssetCatalogName: String?
     
     @IBAction func downloadResourcesButtonTapped(_ sender: UIButton) {
+        
         if let museum = museum {
-            fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id)
+            
+            // ! moving to Secondary thread
+            DispatchQueue.global().async {
+                let dispatchGroup = DispatchGroup()
+                
+                //1.
+                dispatchGroup.enter()
+                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) {
+                        dispatchGroup.leave()
+                    }
+                dispatchGroup.wait()
+                
+                //2.
+                dispatchGroup.enter()
+                self.fetchImagesForAllPaintings{
+                    dispatchGroup.leave()
+                }
+                dispatchGroup.wait()
+                
+                //3.
+                dispatchGroup.enter()
+                self.createReferenceImageSet{
+                    dispatchGroup.leave()
+                }
+                dispatchGroup.wait()
+                
+                // To main thread
+                DispatchQueue.main.async {
+                    print("Number of assets created: \(self.referenceImages.count)")
+                    self.downloadResourcesButton.titleLabel?.text = "Go to AR Experience"
+                }
+            }
+            
         } else {
             print("No museum object")
         }

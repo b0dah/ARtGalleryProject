@@ -6,7 +6,7 @@
 //  Copyright © 2020 Иван Романов. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FetchedPaintingsObject: Codable {
     var paintings: [Painting]
@@ -23,6 +23,10 @@ class Painting: Codable {
     var imageTitle: String
     var physicalWidth: Double
     var physicalHeight: Double
+    
+    lazy var image: UIImage? = nil
+    
+//    var image: UIImage?
     
     init(id: Int, title: String, year: Int, description: String, author: Artist, genre: String, museumId: Int, imageTitle: String, physicalWidth: Double, physicalHeight: Double) {
         self.id = id
