@@ -16,13 +16,13 @@ class MuseumDetailsViewController: UIViewController {
     @IBOutlet weak var appearenceImage: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var downloadResourcesButton: UIButton!
+    @IBOutlet weak var downloadResourcesButton: LoadingButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     // Class Fields
     var paintings : [Painting]?
-    var referenceImages = [ARReferenceImage]()
+    var referenceImages = Set<ARReferenceImage>()
     
     var museum: Museum?
     var museumAssetCatalogName: String?
@@ -35,6 +35,8 @@ class MuseumDetailsViewController: UIViewController {
         }
         
         if let museum = museum {
+            
+            self.downloadResourcesButton.showLoading()
             
             // ! moving to Secondary thread
             DispatchQueue.global().async {
@@ -64,7 +66,8 @@ class MuseumDetailsViewController: UIViewController {
                 // To main thread
                 DispatchQueue.main.async {
                     print("Number of assets created: \(self.referenceImages.count)")
-                    self.downloadResourcesButton.titleLabel?.text = "Go to AR Experience"
+                    self.downloadResourcesButton.hideLoading()
+                    self.downloadResourcesButton.setTitle("Go to AR Experience", for: .normal) 
                 }
             }
             
@@ -77,6 +80,8 @@ class MuseumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        downloadResourcesButton.layer.cornerRadius = 10
+        downloadResourcesButton.clipsToBounds = true
         self.automaticallyAdjustsScrollViewInsets = false
         
         guard let museum = museum else {

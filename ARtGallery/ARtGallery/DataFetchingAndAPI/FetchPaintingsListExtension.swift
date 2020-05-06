@@ -90,7 +90,13 @@ extension MuseumDetailsViewController {
             return
         }
         
+        let dispatchGroup = DispatchGroup()
+        
+        // Interate over all the paintings
         for painting in self.paintings! {
+            
+            dispatchGroup.enter()
+            
             guard let url = URL(string: Constants.paintingsReproductionsPath + painting.imageTitle) else {
                 print("wrong url for the current image!")
                 return//continue
@@ -107,15 +113,20 @@ extension MuseumDetailsViewController {
                     // Here is some async queue maybe
                     painting.image = image
                     print("2: image" + painting.title + " downloaded")
-                    completion()
                 }
                 else {
                     print("Couldn't parse as an Image")
                 }
                 
+                dispatchGroup.leave()
+                
             }.resume()
             
-           
+            
+        }
+        
+        dispatchGroup.notify(queue: .global()) {
+            completion()
         }
     }
 }

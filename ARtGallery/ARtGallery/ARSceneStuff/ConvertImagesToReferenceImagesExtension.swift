@@ -64,12 +64,17 @@ extension MuseumDetailsViewController {
     
     func createReferenceImageSet(completion: @escaping ()->Void) {
         
+        let dispatchGroup = DispatchGroup()
+        
         guard self.paintings != nil else {
             print("paintings array is set to nil")
             return
         }
         
         for painting in self.paintings! {
+            
+            dispatchGroup.enter()
+            
             guard let image = painting.image  else {
                 print("painting image is not set")
                 continue
@@ -86,11 +91,14 @@ extension MuseumDetailsViewController {
             let referenceImage = ARReferenceImage(cgImage, orientation: .up, physicalWidth: CGFloat(painting.physicalWidth))
             referenceImage.name = painting.imageTitle
 
-            self.referenceImages.append(referenceImage)
+            self.referenceImages.insert(referenceImage)
             
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .global()) {
             completion()
         }
-  
     }
         
     

@@ -32,6 +32,7 @@
 		BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */; };
 		BCFEAC1D245B2C4400FC8FC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */; };
 		BCFEAC1F245C2DB700FC8FC7 /* MuseumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */; };
+		BCFF49A42462E1AB0081D23B /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFF49A32462E1AB0081D23B /* LoadingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMuseumListExtension.swift; sourceTree = "<group>"; };
 		BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumDetailsViewController.swift; sourceTree = "<group>"; };
+		BCFF49A32462E1AB0081D23B /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +104,11 @@
 				BC11F774244EEBA600734F60 /* Models */,
 				BC11F72A244B505600734F60 /* Main.storyboard */,
 				BC11F72D244B505A00734F60 /* Assets.xcassets */,
-				BC11F771244EE7E700734F60 /* Delegates */,
+				BCFF49A22462E18E0081D23B /* CustomUI */,
 				BC11F772244EEBA600734F60 /* Extensions */,
 				BC11F72F244B505A00734F60 /* LaunchScreen.storyboard */,
 				BC11F732244B505A00734F60 /* Info.plist */,
+				BC11F771244EE7E700734F60 /* Delegates */,
 			);
 			path = ARtGallery;
 			sourceTree = "<group>";
@@ -186,6 +189,14 @@
 				BC8AC5E4245DC0E30039CB67 /* FetchPaintingsListExtension.swift */,
 			);
 			path = DataFetchingAndAPI;
+			sourceTree = "<group>";
+		};
+		BCFF49A22462E18E0081D23B /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				BCFF49A32462E1AB0081D23B /* LoadingButton.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 				BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */,
 				BC8AC5EB245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift in Sources */,
 				BCFEAC1D245B2C4400FC8FC7 /* Constants.swift in Sources */,
+				BCFF49A42462E1AB0081D23B /* LoadingButton.swift in Sources */,
 				BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */,
 				BCD19784244F227F00530CE3 /* Painting.swift in Sources */,
 				BC8AC5E5245DC0E30039CB67 /* FetchPaintingsListExtension.swift in Sources */,

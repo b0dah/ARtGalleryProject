@@ -15,7 +15,7 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var feedbackLabel: UILabel!
     
-    var referenceImages: [ARReferenceImage]?
+    var referenceImages: Set<ARReferenceImage>?
     
     // Private Fields
     private let configuration = ARWorldTrackingConfiguration()
@@ -47,7 +47,7 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
 //        }
 //
         let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = Set(self.referenceImages!)
+        configuration.detectionImages = self.referenceImages!
 
         self.sceneView.session.run(configuration)
         

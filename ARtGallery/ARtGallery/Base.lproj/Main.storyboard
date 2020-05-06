@@ -213,8 +213,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VD-BO-0Bd">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="George Nick - The World is Flat Painters' Table" translatesAutoresizingMaskIntoConstraints="NO" id="Oil-fN-8Ok">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oil-fN-8Ok">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                        <string key="image">museum-security-system-vector-icons-set-control-modern-solid-symbol-collection-filled-style-pictogram-pack-signs-logo-illustration-179402742</string>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Museum Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjI-it-CKF">
                                                         <rect key="frame" x="17" y="327" width="341" height="31"/>
@@ -295,14 +296,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFp-qn-keK">
                                                 <rect key="frame" x="0.0" y="658.5" width="375" height="70"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-nN-mnk">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-nN-mnk" customClass="LoadingButton" customModule="ARtGallery" customModuleProvider="target">
                                                         <rect key="frame" x="65" y="10" width="245" height="50"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.41508164469999997" alpha="0.8064800942" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.66136230184246569" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="bUf-I8-uSw"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <state key="normal" title="Download AR resources">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Download AR resources" image="square.and.arrow.down" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -346,7 +347,7 @@
                     <connections>
                         <outlet property="appearenceImage" destination="Oil-fN-8Ok" id="t0b-W3-owN"/>
                         <outlet property="descriptionLabel" destination="dld-6n-0T4" id="QIZ-6c-1j5"/>
-                        <outlet property="downloadResourcesButton" destination="jFw-nN-mnk" id="pcQ-ah-vAZ"/>
+                        <outlet property="downloadResourcesButton" destination="jFw-nN-mnk" id="BZ6-LB-mH1"/>
                         <outlet property="locationLabel" destination="vvl-Sg-zRc" id="hqr-CN-OYU"/>
                         <outlet property="logoImageView" destination="1Nb-i1-wcv" id="6XY-wJ-FcD"/>
                         <outlet property="nameLabel" destination="cjI-it-CKF" id="MVw-6b-4jC"/>
@@ -419,9 +420,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="George Nick - The World is Flat Painters' Table" width="1600" height="1599"/>
         <image name="location.svg" width="240" height="240"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image width="800" height="800">
+            <string key="name">museum-security-system-vector-icons-set-control-modern-solid-symbol-collection-filled-style-pictogram-pack-signs-logo-illustration-179402742</string>
+        </image>
+        <image name="square.and.arrow.down" catalog="system" width="60" height="64"/>
         <image name="square.stack.3d.down.right.fill" catalog="system" width="62" height="64"/>
     </resources>
 </document>
