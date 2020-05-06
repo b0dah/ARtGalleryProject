@@ -9,14 +9,14 @@ from .serializers import PaintingSerializer, MuseumSerializer
 class PaintingView(APIView):
 	
 	def get(self, request):	# get-method for paiting listing
-		museumId = request.query_params.get('museum_id')
+		requestedMuseumId = request.query_params.get('museum_id')
 		queryset = Painting.objects.all()
 		
 		# return the whole list of paintings
 		serializer = PaintingSerializer(queryset, many = True)
 		
-		if museumId is not None: # return only related to the corresponding museum
-			museumsPaintings = queryset.filter(id=museumId)
+		if requestedMuseumId is not None: # return only related to the corresponding museum
+			museumsPaintings = queryset.filter(museumId=requestedMuseumId)
 			serializer = PaintingSerializer(museumsPaintings, many = True)
 		
 		return Response({"paintings":serializer.data})

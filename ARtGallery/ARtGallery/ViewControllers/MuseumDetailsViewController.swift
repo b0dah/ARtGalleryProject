@@ -29,6 +29,11 @@ class MuseumDetailsViewController: UIViewController {
     
     @IBAction func downloadResourcesButtonTapped(_ sender: UIButton) {
         
+        if sender.titleLabel?.text == "Go to AR Experience" {
+            performSegue(withIdentifier: "PresentExplorationMode", sender: self)
+            return
+        }
+        
         if let museum = museum {
             
             // ! moving to Secondary thread
@@ -82,7 +87,7 @@ class MuseumDetailsViewController: UIViewController {
         updateUI()
     }
     
-    
+    // MARK: - UI Drawing
     func updateUI() {
         if let museum = museum {
             self.nameLabel.text = museum.name
@@ -96,6 +101,20 @@ class MuseumDetailsViewController: UIViewController {
             
             let urlToLogoImage = Constants.museumsLogosPath + museum.logoImageTitle
             self.logoImageView.downloadImage(from: urlToLogoImage)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "PresentExplorationMode" else {
+            print("Not a segue to the exploration mode")
+            return
+        }
+        
+        if let destination = segue.destination as? ExplorationViewController {
+            destination.referenceImages = referenceImages
+        } else {
+            print("Casting To ExplorationViewController failed")
         }
     }
     

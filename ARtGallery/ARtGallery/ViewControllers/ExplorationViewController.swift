@@ -15,10 +15,9 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var feedbackLabel: UILabel!
     
-    var museum: Museum?
-    var museumAssetCatalogName: String?
+    var referenceImages: [ARReferenceImage]?
     
-    // Fields
+    // Private Fields
     private let configuration = ARWorldTrackingConfiguration()
     
     override func viewDidLoad() {
@@ -35,22 +34,21 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let museum = museum else {
-            print("No museum passed!")
+        guard referenceImages != nil else {
+            print("No reference images array passed!")
             return
         }
-        
-        //  print(museum.name + " situated in " + museum.city)
+        print(self.referenceImages?.count)
         
         // Ref Images Set Name
-        museumAssetCatalogName = museum.name
-        guard let refereceImages = ARReferenceImage.referenceImages(inGroupNamed: museumAssetCatalogName!, bundle: nil) else {
-            fatalError("Missing expected asset catalog resources.")
-        }
-        
+//        museumAssetCatalogName = museum.name
+//        guard let refereceImages = ARReferenceImage.referenceImages(inGroupNamed: museumAssetCatalogName!, bundle: nil) else {
+//            fatalError("Missing expected asset catalog resources.")
+//        }
+//
         let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = refereceImages
-        
+        configuration.detectionImages = Set(self.referenceImages!)
+
         self.sceneView.session.run(configuration)
         
     }
