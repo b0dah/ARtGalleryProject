@@ -296,7 +296,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFp-qn-keK">
                                                 <rect key="frame" x="0.0" y="658.5" width="375" height="70"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-nN-mnk" customClass="LoadingButton" customModule="ARtGallery" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-nN-mnk" customClass="LoadingButton" customModule="ARtGallery" customModuleProvider="target">
                                                         <rect key="frame" x="65" y="10" width="245" height="50"/>
                                                         <color key="backgroundColor" red="0.66136230184246569" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>

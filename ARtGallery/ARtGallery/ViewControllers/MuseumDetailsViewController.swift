@@ -67,7 +67,8 @@ class MuseumDetailsViewController: UIViewController {
                 DispatchQueue.main.async {
                     print("Number of assets created: \(self.referenceImages.count)")
                     self.downloadResourcesButton.hideLoading()
-                    self.downloadResourcesButton.setTitle("Go to AR Experience", for: .normal) 
+                    self.downloadResourcesButton.setTitle("Go to AR Experience", for: .normal)
+                    self.downloadResourcesButton.setImage(UIImage(systemName: "arrow.left.circle"), for: .normal)
                 }
             }
             
