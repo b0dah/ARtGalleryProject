@@ -42,11 +42,11 @@ extension ExplorationViewController {
         node.addChildNode(planeNode)
         
         // title
-        let titleNode = createPaintingTitleNode(paintingName: referenceImage.name!, paintingSize: imagePhysicalSize)
+        let titleNode = createPaintingTitleNode(paintingName: String(referenceImage.name!.prefix(referenceImage.name!.count - 4)), paintingSize: imagePhysicalSize)
         node.addChildNode(titleNode)
         
         // description
-        let description = "George Nick\n2011\nNick comments: In the beginning, I always felt I couldn't remake the world but I would like to try."
+        let description = "George Nick\n2011\nNick comments: In the beginning,\n I always felt I couldn't remake\n the world but I would like to try."
         let descriptionNode = createPaintingDescriptionNode(description: description, paintingSize: imagePhysicalSize)
         node.addChildNode(descriptionNode)
         

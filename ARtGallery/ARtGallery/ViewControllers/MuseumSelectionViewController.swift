@@ -17,6 +17,8 @@ import UIKit
 
 class MuseumSelectionTableViewController: UITableViewController {
     
+    // UI Properties
+    
     var museums: [Museum] = []
     
     override func viewDidLoad() {
@@ -30,8 +32,19 @@ class MuseumSelectionTableViewController: UITableViewController {
 //        self.tableView.rowHeight = UITableView.automaticDimension
         
         // fetch data from API
-        fetchMuseumList(url: Constants.museumsListAPIEndpoint)
+        fetchMuseumList(url: Constants.museumsListAPIEndpoint) {
+            
+        }
     }
+    
+    @IBAction func refreshControl(_ sender: UIRefreshControl) {
+        fetchMuseumList(url: Constants.museumsListAPIEndpoint) {
+            DispatchQueue.main.async {
+                sender.endRefreshing()
+            }
+        }
+    }
+    
     
     // setting table view controller
     // MARK: Table View Datasource Methods

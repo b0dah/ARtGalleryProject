@@ -10,10 +10,11 @@ import UIKit
 
 extension MuseumSelectionTableViewController {
     
-    func fetchMuseumList(url: String) {
+    func fetchMuseumList(url: String, completion: @escaping () -> Void) {
         
         guard let url = URL(string: url) else {
             print("WRONG Endpoint URL for the museums list")
+            completion()
             return
         }
         
@@ -21,6 +22,7 @@ extension MuseumSelectionTableViewController {
             
             guard let data = data, error == nil, response != nil else {
                 print("http request error!")
+                completion()
                 return
             }
                         
@@ -37,9 +39,12 @@ extension MuseumSelectionTableViewController {
                     self.tableView.reloadData()
                 }
                 
+                completion()
+                
             }
             catch {
                 print("JSON parsing error!")
+                completion()
             }
         }.resume()
         

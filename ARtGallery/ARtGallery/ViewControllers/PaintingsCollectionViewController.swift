@@ -6,16 +6,20 @@
 //  Copyright © 2020 Иван Романов. All rights reserved.
 //
 
-import UIKit
 
-class PaintingsCollectionViewController: UITableViewController {
-    
-    let paintings: [Painting] = [
 //    Painting(title: "Art", author: "George Corominas", year: 1998),
 //    Painting(title: "A Commander in Chief's Tribute to America's Warriors", author: "George W. Bush", year: 2010),
 //    Painting(title: "The World is Flat", author: "George Nick", year: 1975),
 //    Painting(title: "Not Titled", author: "Gheorghe Virtosu", year: 2019),
 //    Painting(title: "Natura morta con Caraffe e tubo", author: "Georges Braque", year: 1934)
+
+import UIKit
+
+class PaintingsCollectionViewController: UITableViewController {
+    
+    let paintings: [Painting] = [
+        Painting(id: 1, title: "Test Painting", year: 2000, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "Painting.jpg", physicalWidth: 0.1, physicalHeight: 0.1),
+        Painting(id: 2, title: "Peaceful Sight", year: 2008, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "PeacefulSight.jpg", physicalWidth: 0.1, physicalHeight: 0.1)
     ]
 
     override func viewDidLoad() {

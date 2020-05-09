@@ -31,7 +31,7 @@ extension ExplorationViewController {
         let zPosition = -paintingSize.height/2.0 - ARConstants.scenePaddingWidth
         
         titleNode.position = SCNVector3(xPosition, 0, zPosition)
-        titleNode.scale = SCNVector3(0.0015, 0.0015, 0.002)
+        titleNode.scale = SCNVector3(0.003, 0.003, 0.002)
 //    titleNode.pivot = SCNMatrix4MakeTranslation(0, 0, 0)
        titleNode.eulerAngles.x = -Float.pi/2
        return titleNode
