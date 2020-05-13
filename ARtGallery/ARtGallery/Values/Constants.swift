@@ -21,4 +21,12 @@ enum Constants {
     static let museumsAppearencesPath = serverStaticResorceFolderPath + "museums_appearences/"
     static let artistsPortraitsPath = serverStaticResorceFolderPath + "artists_portraits/"
     static let paintingsReproductionsPath = serverStaticResorceFolderPath + "paintings_reproductions/"
+    
+    
+    
+    
+    var pathToDocuments: String? {
+        let url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last
+        return url?.absoluteString
+    }
 }

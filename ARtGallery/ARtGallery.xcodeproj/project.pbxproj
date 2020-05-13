@@ -25,6 +25,8 @@
 		BC8AC5E9245DD0CE0039CB67 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5E8245DD0CE0039CB67 /* Artist.swift */; };
 		BC8AC5EB245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5EA245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift */; };
 		BCCA8A2D245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */; };
+		BCCE03D22466CFCE0017CD56 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCCE03D02466CFCE0017CD56 /* Model.xcdatamodeld */; };
+		BCCE03D42466D9D00017CD56 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE03D32466D9D00017CD56 /* DataBaseManager.swift */; };
 		BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */; };
 		BCD19784244F227F00530CE3 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19783244F227F00530CE3 /* Painting.swift */; };
 		BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */; };
@@ -56,6 +58,8 @@
 		BC8AC5E8245DD0CE0039CB67 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		BC8AC5EA245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImagesToReferenceImagesExtension.swift; sourceTree = "<group>"; };
 		BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDynamicDetectionImageSet.swift; sourceTree = "<group>"; };
+		BCCE03D12466CFCE0017CD56 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BCCE03D32466D9D00017CD56 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
 		BCD19783244F227F00530CE3 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				BC11F778244EEF2300734F60 /* ViewControllers */,
 				BC11F77E244EEF7300734F60 /* TableViewCells */,
 				BC11F774244EEBA600734F60 /* Models */,
+				BCCE03CF2466CFA90017CD56 /* CoreDataStuff */,
 				BC11F72A244B505600734F60 /* Main.storyboard */,
 				BC11F72D244B505A00734F60 /* Assets.xcassets */,
 				BCFF49A22462E18E0081D23B /* CustomUI */,
@@ -180,6 +185,15 @@
 				BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */,
 			);
 			path = Values;
+			sourceTree = "<group>";
+		};
+		BCCE03CF2466CFA90017CD56 /* CoreDataStuff */ = {
+			isa = PBXGroup;
+			children = (
+				BCCE03D02466CFCE0017CD56 /* Model.xcdatamodeld */,
+				BCCE03D32466D9D00017CD56 /* DataBaseManager.swift */,
+			);
+			path = CoreDataStuff;
 			sourceTree = "<group>";
 		};
 		BCFEAC19245B2AE200FC8FC7 /* DataFetchingAndAPI */ = {
@@ -281,6 +295,7 @@
 				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,
 				BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */,
 				BC8AC5EB245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift in Sources */,
+				BCCE03D22466CFCE0017CD56 /* Model.xcdatamodeld in Sources */,
 				BCFEAC1D245B2C4400FC8FC7 /* Constants.swift in Sources */,
 				BCFF49A42462E1AB0081D23B /* LoadingButton.swift in Sources */,
 				BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */,
@@ -288,6 +303,7 @@
 				BC8AC5E5245DC0E30039CB67 /* FetchPaintingsListExtension.swift in Sources */,
 				BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */,
 				BCFEAC1F245C2DB700FC8FC7 /* MuseumDetailsViewController.swift in Sources */,
+				BCCE03D42466D9D00017CD56 /* DataBaseManager.swift in Sources */,
 				BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */,
 				BCD19788244F7EDC00530CE3 /* PaintingTableViewCell.swift in Sources */,
 				BC11F777244EEBA600734F60 /* Museum.swift in Sources */,
@@ -492,6 +508,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BCCE03D02466CFCE0017CD56 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCCE03D12466CFCE0017CD56 /* Model.xcdatamodel */,
+			);
+			currentVersion = BCCE03D12466CFCE0017CD56 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BC11F719244B505500734F60 /* Project object */;
 }
