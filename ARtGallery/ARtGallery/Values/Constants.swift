@@ -25,7 +25,7 @@ enum Constants {
     
     
     
-    var pathToDocuments: String? {
+    static var pathToDocuments: String? {
         let url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last
         return url?.absoluteString
     }

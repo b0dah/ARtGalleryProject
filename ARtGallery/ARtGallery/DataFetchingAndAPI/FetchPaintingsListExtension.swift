@@ -10,7 +10,7 @@ import UIKit
 
 extension MuseumDetailsViewController {
     
-    func fetchPaintingsListForMuseum(url: String, museumId: Int, completion: @escaping ()->Void) {
+    func fetchPaintingsListForMuseum(url: String, museumId: Int, completion: @escaping ([[String: AnyObject]]?)->Void) {
                 
         let parameters = ["museum_id" : String(museumId)]
         
@@ -23,36 +23,32 @@ extension MuseumDetailsViewController {
             
             guard let data = data, error == nil, response != nil else {
                 print("http request error! " + error.debugDescription)
+                completion(nil)
                 return
             }
                 
             do {
-
-                let jsonDecoder = JSONDecoder()
-                let fetchedObject = try jsonDecoder.decode(FetchedPaintingsObject.self, from: data)
                 
-//           Start some async maybe {
-                self.paintings = fetchedObject.paintings
-                
-                print("1 paintings fetched: ")
-                print(self.paintings)
-                
-                completion()
-                
-//                for painting in self.paintings! {
-//                    self.fetchAndSavePaintingImage(painting: painting)
-//                }
-                
-                
-//                self.createReferenceImageSet(completion:  {
-//                    DispatchQueue.main.async {
-//                        self.downloadResourcesButton.titleLabel?.text = "Go to AR!"
-//                    }
-//                })
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers]) as? [String: AnyObject] {
+                    
+                    guard let paintingsArray = jsonArray["paintings"] as? [[String: AnyObject]] else {
+                        print("Couldn't retrieve array with key\"paintings\"")
+                        completion(nil)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completion(paintingsArray)
+                    }
+                    
+                    
+                } else {
+                    print("Can't create json object")
+                }
                 
             }
-            catch {
-                print("JSON parsing error!")
+            catch let error as NSError {
+                print("JSON parsing error : \(error.userInfo)")
             }
             
         }.resume()
@@ -60,73 +56,6 @@ extension MuseumDetailsViewController {
     }
     
     
-    // MARK: - IMAGES
-//    func fetchAndSavePaintingImage(painting: Painting) {
-//
-//        guard let url = URL(string: Constants.paintingsReproductionsPath + painting.imageTitle) else {
-//            print("WRONG URL to the image")
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            guard let data = data, error == nil, response != nil  else {
-//                print("http request error! " + error.debugDescription)
-//                return
-//            }
-//
-//            if let image = UIImage(data: data) {
-//                // Here is some async queue maybe
-//                painting.image = image
-//            }
-//            else {
-//                print("Couldn't parse as an Image")
-//            }
-//        }.resume()
-//    }
-    func fetchImagesForAllPaintings(completion: @escaping ()->Void) {
-        
-        guard self.paintings != nil else {
-            print("no paintings prefetched!")
-            return
-        }
-        
-        let dispatchGroup = DispatchGroup()
-        
-        // Interate over all the paintings
-        for painting in self.paintings! {
-            
-            dispatchGroup.enter()
-            
-            guard let url = URL(string: Constants.paintingsReproductionsPath + painting.imageTitle) else {
-                print("wrong url for the current image!")
-                return//continue
-            }
-            
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                
-                guard let data = data, error == nil, response != nil  else {
-                    print("http request error! " + error.debugDescription)
-                    return
-                }
-                
-                if let image = UIImage(data: data) {
-                    // Here is some async queue maybe
-                    painting.image = image
-                    print("2: image" + painting.title + " downloaded")
-                }
-                else {
-                    print("Couldn't parse as an Image")
-                }
-                
-                dispatchGroup.leave()
-                
-            }.resume()
-            
-            
-        }
-        
-        dispatchGroup.notify(queue: .global()) {
-            completion()
-        }
-    }
 }
+    
+    

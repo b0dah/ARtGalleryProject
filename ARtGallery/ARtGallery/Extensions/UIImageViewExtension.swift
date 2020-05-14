@@ -32,9 +32,11 @@ extension UIImageView {
             print("download finished")
 //            print(response?.suggestedFilename!)
                
-               DispatchQueue.main.async {
+            DispatchQueue.main.async {
                 self.image = UIImage(data: data)
-               }
-           }.resume()
-       }
+            }
+        }.resume()
+    }
+    
+ 
 }

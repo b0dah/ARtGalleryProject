@@ -10,56 +10,7 @@ import UIKit
 import ARKit
 import CoreImage
 
-extension MuseumDetailsViewController {
-    
-//    func createReferenceImageSet() {
-//        guard (self.paintingsImages != nil) else {
-//            print("paintingImages array is empty")
-//            return
-//        }
-//
-//        for image in self.paintingsImages! {
-//            // Convert It To A CIImage
-//            guard let ciImage = CIImage(image: image),
-//            // Then Convert The CIImage To A CGImage
-//                let cgImage = convertCIImageToCGImage(inputImage: ciImage) else {
-//                    continue
-//            }
-//
-//            // Create An ARReference Image (Remembering Physical Width Is In Metres)
-//            /*FIX*/let referenceImage = ARReferenceImage(cgImage, orientation: .up, physicalWidth: 0.15)
-//            /*FIX*/referenceImage.name = "painting"
-//
-//            self.referenceImages.append(referenceImage)
-//
-//        }
-//    }
-    
-    
-    
-//    func convertAndSaveAsReferenceImage(painting: Painting) {
-//
-//        guard let image = painting.image else {
-//            print("Image for Paintings object is not set")
-//            return
-//        }
-//
-//            // Convert It To A CIImage
-//        guard let ciImage = CIImage(image: image),
-//            // Then Convert The CIImage To A CGImage
-//            let cgImage = convertCIImageToCGImage(inputImage: ciImage) else {
-//                print("Image Converting Error!")
-//                return
-//            }
-//
-//        // Create An ARReference Image (Remembering Physical Width Is In Metres)
-//        let referenceImage = ARReferenceImage(cgImage, orientation: .up, physicalWidth: CGFloat(painting.physicalWidth))
-//        referenceImage.name = painting.imageTitle
-//
-//        self.referenceImages.append(referenceImage)
-//        print("APPENDED! now there are " + String(referenceImages.count) + " reference images!")
-//
-//    }
+/*extension MuseumDetailsViewController {
     
     
     func createReferenceImageSet(completion: @escaping ()->Void) {
@@ -117,3 +68,4 @@ extension MuseumDetailsViewController {
         return nil
     }
 }
+*/

@@ -29,61 +29,57 @@ class MuseumDetailsViewController: UIViewController {
     
     @IBAction func downloadResourcesButtonTapped(_ sender: UIButton) {
         
-        if sender.titleLabel?.text == "Go to AR Experience" {
-            performSegue(withIdentifier: "PresentExplorationMode", sender: self)
-            return
-        }
-        
-        if let museum = museum {
-            
-            self.downloadResourcesButton.showLoading()
-            
-            // ! moving to Secondary thread
-            DispatchQueue.global().async {
-                let dispatchGroup = DispatchGroup()
-                
-                //1.
-                dispatchGroup.enter()
-                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) {
-                        dispatchGroup.leave()
-                    }
-                dispatchGroup.wait()
-                
-                //2.
-                dispatchGroup.enter()
-                self.fetchImagesForAllPaintings{
-                    dispatchGroup.leave()
-                }
-                dispatchGroup.wait()
-                
-                //3.
-                dispatchGroup.enter()
-                self.createReferenceImageSet{
-                    dispatchGroup.leave()
-                }
-                dispatchGroup.wait()
-                
-                // To main thread
-                DispatchQueue.main.async {
-                    print("Number of assets created: \(self.referenceImages.count)")
-                    self.downloadResourcesButton.hideLoading()
-                    self.downloadResourcesButton.setTitle("Go to AR Experience", for: .normal)
-                    self.downloadResourcesButton.setImage(UIImage(systemName: "arrow.left.circle"), for: .normal)
-                }
-            }
-            
-        } else {
-            print("No museum object")
-        }
+//        if sender.titleLabel?.text == "Go to AR Experience" {
+//            performSegue(withIdentifier: "PresentExplorationMode", sender: self)
+//            return
+//        }
+//        
+//        if let museum = museum {
+//            
+//            self.downloadResourcesButton.showLoading()
+//            
+//            // ! moving to Secondary thread
+//            DispatchQueue.global().async {
+//                let dispatchGroup = DispatchGroup()
+//                
+//                //1.
+//                dispatchGroup.enter()
+//                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) {
+//                        dispatchGroup.leave()
+//                    }
+//                dispatchGroup.wait()
+//                
+//                //2.
+//                dispatchGroup.enter()
+//                self.fetchImagesForAllPaintings{
+//                    dispatchGroup.leave()
+//                }
+//                dispatchGroup.wait()
+//                
+//                //3.
+//                dispatchGroup.enter()
+//                self.createReferenceImageSet{
+//                    dispatchGroup.leave()
+//                }
+//                dispatchGroup.wait()
+//                
+//                // To main thread
+//                DispatchQueue.main.async {
+//                    print("Number of assets created: \(self.referenceImages.count)")
+//                    self.downloadResourcesButton.hideLoading()
+//                    self.downloadResourcesButton.setTitle("Go to AR Experience", for: .normal)
+//                    self.downloadResourcesButton.setImage(UIImage(systemName: "arrow.left.circle"), for: .normal)
+//                }
+//            }
+//            
+//        } else {
+//            print("No museum object")
+//        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        downloadResourcesButton.layer.cornerRadius = 10
-        downloadResourcesButton.clipsToBounds = true
-        self.automaticallyAdjustsScrollViewInsets = false
         
         guard let museum = museum else {
             print("No museum passed!")
@@ -91,6 +87,26 @@ class MuseumDetailsViewController: UIViewController {
         }
             
         updateUI()
+        
+        print(Constants.pathToDocuments)
+        ///- fetch test
+//        fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (dictionary) in
+//            if let paintingsDictionary = dictionary {
+//                print(paintingsDictionary)
+//                print(dictionary?.count)
+//
+//
+//            } else {
+//                print("nil dict passed in the closure")
+//            }
+//        }
+        
+        // count test
+        let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
+        print("Count in DB is :")
+        if let count = getNumberOfPaintingsForMuseum(museumId: museum.id, context: context) {
+            print(count)
+        }
     }
     
     // MARK: - UI Drawing
@@ -107,6 +123,11 @@ class MuseumDetailsViewController: UIViewController {
             
             let urlToLogoImage = Constants.museumsLogosPath + museum.logoImageTitle
             self.logoImageView.downloadImage(from: urlToLogoImage)
+            
+            // button
+            self.downloadResourcesButton.layer.cornerRadius = 10
+            self.downloadResourcesButton.clipsToBounds = true
+//            self.automaticallyAdjustsScrollViewInsets = false
         }
     }
     

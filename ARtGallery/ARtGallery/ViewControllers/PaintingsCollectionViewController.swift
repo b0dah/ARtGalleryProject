@@ -18,8 +18,8 @@ import UIKit
 class PaintingsCollectionViewController: UITableViewController {
     
     let paintings: [Painting] = [
-        Painting(id: 1, title: "Test Painting", year: 2000, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "Painting.jpg", physicalWidth: 0.1, physicalHeight: 0.1),
-        Painting(id: 2, title: "Peaceful Sight", year: 2008, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "PeacefulSight.jpg", physicalWidth: 0.1, physicalHeight: 0.1)
+//        Painting(id: 1, title: "Test Painting", year: 2000, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "Painting.jpg", physicalWidth: 0.1, physicalHeight: 0.1),
+//        Painting(id: 2, title: "Peaceful Sight", year: 2008, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "PeacefulSight.jpg", physicalWidth: 0.1, physicalHeight: 0.1)
     ]
 
     override func viewDidLoad() {
