@@ -61,8 +61,8 @@
 		BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDecodingExtension.swift; sourceTree = "<group>"; };
 		BC4CB365246D1D07008BE946 /* PaintingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingKeys.swift; sourceTree = "<group>"; };
 		BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistKeys.swift; sourceTree = "<group>"; };
-		BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Painting+CoreDataClass.swift"; path = "ARtGallery/Painting+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Painting+CoreDataProperties.swift"; path = "ARtGallery/Painting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Painting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Painting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC4CB375246D1E2C008BE946 /* Artist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BC4CB376246D1E2C008BE946 /* Artist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC4CB379246D32B7008BE946 /* FetchImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageData.swift; sourceTree = "<group>"; };
@@ -102,10 +102,6 @@
 		BC11F718244B505500734F60 = {
 			isa = PBXGroup;
 			children = (
-				BC4CB375246D1E2C008BE946 /* Artist+CoreDataClass.swift */,
-				BC4CB376246D1E2C008BE946 /* Artist+CoreDataProperties.swift */,
-				BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */,
-				BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */,
 				BC11F723244B505600734F60 /* ARtGallery */,
 				BC11F722244B505600734F60 /* Products */,
 			);
@@ -161,6 +157,10 @@
 		BC11F774244EEBA600734F60 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC4CB375246D1E2C008BE946 /* Artist+CoreDataClass.swift */,
+				BC4CB376246D1E2C008BE946 /* Artist+CoreDataProperties.swift */,
+				BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */,
+				BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */,
 				BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */,
 				BC4CB365246D1D07008BE946 /* PaintingKeys.swift */,
 				BC11F775244EEBA600734F60 /* Museum.swift */,
@@ -217,6 +217,7 @@
 				BCCE03D02466CFCE0017CD56 /* Model.xcdatamodeld */,
 				BCCE03D32466D9D00017CD56 /* DataBaseManager.swift */,
 				BC4CB37B246D40E8008BE946 /* DataBaseFunctionalityExtension.swift */,
+				BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */,
 			);
 			path = CoreDataStuff;
 			sourceTree = "<group>";
@@ -226,7 +227,6 @@
 			children = (
 				BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */,
 				BC8AC5E4245DC0E30039CB67 /* FetchPaintingsListExtension.swift */,
-				BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */,
 				BC4CB379246D32B7008BE946 /* FetchImageData.swift */,
 			);
 			path = DataFetchingAndAPI;

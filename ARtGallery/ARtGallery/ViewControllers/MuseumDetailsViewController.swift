@@ -27,42 +27,44 @@ class MuseumDetailsViewController: UIViewController {
     var museum: Museum?
     var museumAssetCatalogName: String?
     
+    let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
+    
     @IBAction func downloadResourcesButtonTapped(_ sender: UIButton) {
         
 //        if sender.titleLabel?.text == "Go to AR Experience" {
 //            performSegue(withIdentifier: "PresentExplorationMode", sender: self)
 //            return
 //        }
-//        
+//
 //        if let museum = museum {
-//            
+//
 //            self.downloadResourcesButton.showLoading()
-//            
+//
 //            // ! moving to Secondary thread
 //            DispatchQueue.global().async {
 //                let dispatchGroup = DispatchGroup()
-//                
+//
 //                //1.
 //                dispatchGroup.enter()
 //                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) {
 //                        dispatchGroup.leave()
 //                    }
 //                dispatchGroup.wait()
-//                
+//
 //                //2.
 //                dispatchGroup.enter()
 //                self.fetchImagesForAllPaintings{
 //                    dispatchGroup.leave()
 //                }
 //                dispatchGroup.wait()
-//                
+//
 //                //3.
 //                dispatchGroup.enter()
 //                self.createReferenceImageSet{
 //                    dispatchGroup.leave()
 //                }
 //                dispatchGroup.wait()
-//                
+//
 //                // To main thread
 //                DispatchQueue.main.async {
 //                    print("Number of assets created: \(self.referenceImages.count)")
@@ -71,7 +73,7 @@ class MuseumDetailsViewController: UIViewController {
 //                    self.downloadResourcesButton.setImage(UIImage(systemName: "arrow.left.circle"), for: .normal)
 //                }
 //            }
-//            
+//
 //        } else {
 //            print("No museum object")
 //        }
@@ -88,25 +90,48 @@ class MuseumDetailsViewController: UIViewController {
             
         updateUI()
         
-        print(Constants.pathToDocuments)
-        ///- fetch test
-//        fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (dictionary) in
-//            if let paintingsDictionary = dictionary {
-//                print(paintingsDictionary)
-//                print(dictionary?.count)
-//
-//
-//            } else {
-//                print("nil dict passed in the closure")
-//            }
-//        }
+        // MARK:- lifecycle
         
-        // count test
-        let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
-        print("Count in DB is :")
-        if let count = getNumberOfPaintingsForMuseum(museumId: museum.id, context: context) {
-            print(count)
+        ///1. fetch paintings array and check for relevance
+        fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (array) in
+            if let paintingsArray = array {
+                print()
+
+                // Compare Counts
+                print("Count in DB is :")
+                if let localPaintingsCount = self.getNumberOfPaintingsForMuseum(museumId: museum.id, context: self.context) {
+
+                    if paintingsArray.count == localPaintingsCount {
+                        print("first cond: OK")
+
+                        // Compare IDs Sets
+                        if let remotePaintingsIDs = self.getPaintingsIDsForMuseumFromArray(paintingsArray: paintingsArray)
+                            , let localPaintingsIDs = self.getPaintingsIDsForMuseumFromCoreData(museumId: museum.id, context: self.context) {
+
+                            if remotePaintingsIDs == localPaintingsIDs {
+                                print("second cond: OK")
+                            } else {
+                                print("second condition: failed")
+                            }
+
+                        } else {
+                            print("Makin' up IDs list failed!")
+                        }
+                    }
+                    else {
+                        print("first condition: failed")
+                        self.resavePaintingsLocally(jsonPaintingsArray: paintingsArray, context: self.context)
+                    }
+
+                } else {
+                    print("Can't count local paintings")
+                }
+            } else {
+                print("nil dict passed in the closure")
+            }
+
         }
+        
     }
     
     // MARK: - UI Drawing

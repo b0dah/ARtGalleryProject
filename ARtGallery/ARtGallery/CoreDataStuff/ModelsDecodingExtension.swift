@@ -10,7 +10,7 @@ import CoreData
 
 extension MuseumDetailsViewController {
     
-    private func decodeArtistJSONDictionary(context: NSManagedObjectContext, dictionary: [String: AnyObject]) -> Artist? {
+    private func createArtistEntity(context: NSManagedObjectContext, dictionary: [String: AnyObject]) -> Artist? {
         
         guard let artist = NSEntityDescription.insertNewObject(forEntityName: "Artist", into: context) as? Artist
         else {
@@ -38,7 +38,7 @@ extension MuseumDetailsViewController {
         return artist
     }
     
-    private func decodePaintingJSONDictionary(context: NSManagedObjectContext, dictionary: [String: AnyObject]) -> Painting? {
+    func createPaintingEntity(context: NSManagedObjectContext, dictionary: [String: AnyObject]) -> Painting? {
         
         guard let painting = NSEntityDescription.insertNewObject(forEntityName: "Painting", into: context) as? Painting
         else {
@@ -46,11 +46,16 @@ extension MuseumDetailsViewController {
             return nil
         }
         
+        print("\n\n")
+        print(dictionary)
+        print("\n\n")
+
+        
         guard
             let id = dictionary[PaintingKeys.id] as? Int32,
             let title = dictionary[PaintingKeys.title] as? String,
             let genre = dictionary[PaintingKeys.genre] as? String,
-//            let image = nil,
+////            let image = nil,
             let imageName = dictionary[PaintingKeys.imageName] as? String,
             let details = dictionary[PaintingKeys.details] as? String,
             let museumId = dictionary[PaintingKeys.museumId] as? Int32,
@@ -66,6 +71,7 @@ extension MuseumDetailsViewController {
         painting.id = id
         painting.title = title
         painting.details = details
+        painting.genre = genre
         painting.image = nil // !
         painting.imageName = imageName
         painting.museumId = museumId
@@ -73,7 +79,7 @@ extension MuseumDetailsViewController {
         painting.physicalWidth = physicalWidth
         painting.physicalHeight = physicalHeight
         
-        if let author = decodeArtistJSONDictionary(context: context, dictionary: authorDictionary) {
+        if let author = createArtistEntity(context: context, dictionary: authorDictionary) {
             painting.author = author
         } else {
             fatalError("No author!")

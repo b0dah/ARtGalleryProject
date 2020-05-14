@@ -14,7 +14,7 @@ public enum PaintingKeys {
     static let title = "title"
     static let genre = "genre"
     static let image = "image"
-    static let imageName = "imageName"
+    static let imageName = "imageTitle" // !
     static let details = "description" // !
     static let museumId = "museumId"
     static let year = "year"
