@@ -112,8 +112,30 @@ class MuseumDetailsViewController: UIViewController {
                                 print("second cond: OK")
                                 
                                 self.resourcesButton.customState = .preparing
-                                self.fetchPaintingsFromLocalStorage(context: self.context)
-                                print(self.paintings?.count)                                
+                                self.fetchPaintingsFromLocalStorage(context: self.context) {
+                                    (error) in
+                                    
+                                    guard error == nil else {
+                                        print("fetch failed")
+                                        return
+                                    }
+                                    
+                                    let dispatchGroup = DispatchGroup()
+                                    dispatchGroup.enter()
+                                    self.createReferenceImageSet{
+                                        dispatchGroup.leave()
+                                    }
+                                    dispatchGroup.wait()
+                                    
+                                    DispatchQueue.main.async {
+                                        guard self.referenceImages.count > 0 else {
+                                            print("No assets created")
+                                            return
+                                        }
+                                        print("Number of assets created: \(self.referenceImages.count)")
+                                        self.resourcesButton.customState = .readyToGoToAR
+                                    }
+                                }
                                 
                             } else {
                                 print("second condition: failed")

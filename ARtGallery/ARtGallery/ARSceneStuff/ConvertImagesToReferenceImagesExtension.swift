@@ -10,7 +10,7 @@ import UIKit
 import ARKit
 import CoreImage
 
-/*extension MuseumDetailsViewController {
+extension MuseumDetailsViewController {
     
     
     func createReferenceImageSet(completion: @escaping ()->Void) {
@@ -26,8 +26,14 @@ import CoreImage
             
             dispatchGroup.enter()
             
-            guard let image = painting.image  else {
+            guard let data = painting.image  else {
                 print("painting image is not set")
+                continue
+            }
+            
+            // Convert Data to UIImage
+            guard let image = UIImage(data: data) else {
+                print("Can't convert Data to UIImage")
                 continue
             }
             
@@ -40,7 +46,7 @@ import CoreImage
 
             // Create An ARReference Image (Remembering Physical Width Is In Metres)
             let referenceImage = ARReferenceImage(cgImage, orientation: .up, physicalWidth: CGFloat(painting.physicalWidth))
-            referenceImage.name = painting.imageTitle
+            referenceImage.name = painting.imageName
 
             self.referenceImages.insert(referenceImage)
             
@@ -68,4 +74,3 @@ import CoreImage
         return nil
     }
 }
-*/

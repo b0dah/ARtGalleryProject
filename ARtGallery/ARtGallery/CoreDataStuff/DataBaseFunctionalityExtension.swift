@@ -118,15 +118,19 @@ extension MuseumDetailsViewController {
     }
     
     
-    func fetchPaintingsFromLocalStorage(context: NSManagedObjectContext) {
+    func fetchPaintingsFromLocalStorage(context: NSManagedObjectContext, completion: @escaping (NSError?)-> Void) {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: PaintingKeys.entityName)
         
         do {
             self.paintings = try context.fetch(fetchRequest) as? [Painting]
             print("fetched!")
+            DispatchQueue.main.async {
+                completion(nil)
+            }
         } catch let error as NSError {
             print("Couldn't fetch full paintings : \(error) \(error.userInfo)")
+            completion(error)
         }
     }
     

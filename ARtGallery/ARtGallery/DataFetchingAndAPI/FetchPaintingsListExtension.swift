@@ -55,52 +55,7 @@ extension MuseumDetailsViewController {
         
     }
     
-//    func fetchImagesForAllPaintings(completion: @escaping ()->Void) {
-//
-//        guard self.paintings != nil else {
-//            print("no paintings prefetched!")
-//            return
-//        }
-//
-//        let dispatchGroup = DispatchGroup()
-//
-//        // Interate over all the paintings
-//        for painting in self.paintings! {
-//
-//            dispatchGroup.enter()
-//
-//            guard let url = URL(string: Constants.paintingsReproductionsPath + painting.imageTitle) else {
-//                print("wrong url for the current image!")
-//                return//continue
-//            }
-//
-//            URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//                guard let data = data, error == nil, response != nil  else {
-//                    print("http request error! " + error.debugDescription)
-//                    return
-//                }
-//
-//                if let image = UIImage(data: data) {
-//                    // Here is some async queue maybe
-//                    painting.image = image
-//                    print("2: image" + painting.title + " downloaded")
-//                }
-//                else {
-//                    print("Couldn't parse as an Image")
-//                }
-//
-//                dispatchGroup.leave()
-//
-//            }.resume()
-//
-//
-//        }
-//
-//        dispatchGroup.notify(queue: .global()) {
-//            completion()
-//        }
-//    }
+
     
 }
     
