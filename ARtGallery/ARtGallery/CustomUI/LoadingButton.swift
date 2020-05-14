@@ -13,9 +13,7 @@ class LoadingButton: UIButton {
     var activityIndicator: UIActivityIndicatorView!
 
     func showLoading() {
-        originalButtonText = self.titleLabel?.text
         self.setImage(nil, for: .normal)
-        self.setTitle("Downloading", for: .normal)
 
         if (activityIndicator == nil) {
             activityIndicator = createActivityIndicator()
@@ -25,9 +23,10 @@ class LoadingButton: UIButton {
     }
 
     func hideLoading() {
-        self.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 106/255, alpha: 1.0)
-        self.setTitle(originalButtonText, for: .normal)
-        activityIndicator.stopAnimating()
+        
+        if activityIndicator != nil {
+            activityIndicator.stopAnimating()
+        }
     }
 
     private func createActivityIndicator() -> UIActivityIndicatorView {

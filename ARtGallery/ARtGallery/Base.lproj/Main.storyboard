@@ -189,6 +189,7 @@
                     <tabBarItem key="tabBarItem" title="Explore" image="magnifyingglass" catalog="system" id="yn9-jg-Qo8"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="KBU-fV-7WF"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="k1K-7t-N8T">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <action selector="refreshControl:" destination="AH0-3d-uow" eventType="valueChanged" id="ZDq-vQ-inR"/>
@@ -301,7 +302,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFp-qn-keK">
                                                 <rect key="frame" x="0.0" y="658.5" width="375" height="70"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-nN-mnk" customClass="LoadingButton" customModule="ARtGallery" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-nN-mnk" customClass="ARResourcesButton" customModule="ARtGallery" customModuleProvider="target">
                                                         <rect key="frame" x="65" y="10" width="245" height="50"/>
                                                         <color key="backgroundColor" red="0.66136230184246569" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -312,7 +313,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="downloadResourcesButtonTapped:" destination="SJv-ur-53U" eventType="touchUpInside" id="15K-wB-GSv"/>
+                                                            <action selector="resourcesButtonTapped:" destination="SJv-ur-53U" eventType="touchUpInside" id="Fzm-eb-DNm"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -352,10 +353,10 @@
                     <connections>
                         <outlet property="appearenceImage" destination="Oil-fN-8Ok" id="t0b-W3-owN"/>
                         <outlet property="descriptionLabel" destination="dld-6n-0T4" id="QIZ-6c-1j5"/>
-                        <outlet property="downloadResourcesButton" destination="jFw-nN-mnk" id="BZ6-LB-mH1"/>
                         <outlet property="locationLabel" destination="vvl-Sg-zRc" id="hqr-CN-OYU"/>
                         <outlet property="logoImageView" destination="1Nb-i1-wcv" id="6XY-wJ-FcD"/>
                         <outlet property="nameLabel" destination="cjI-it-CKF" id="MVw-6b-4jC"/>
+                        <outlet property="resourcesButton" destination="jFw-nN-mnk" id="g50-35-6QI"/>
                         <segue destination="uRO-M5-GMh" kind="presentation" identifier="PresentExplorationMode" id="mwy-xv-xg3"/>
                     </connections>
                 </viewController>

@@ -16,7 +16,7 @@ class MuseumDetailsViewController: UIViewController {
     @IBOutlet weak var appearenceImage: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var downloadResourcesButton: LoadingButton!
+    @IBOutlet weak var resourcesButton: ARResourcesButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -29,7 +29,7 @@ class MuseumDetailsViewController: UIViewController {
     
     let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
     
-    @IBAction func downloadResourcesButtonTapped(_ sender: UIButton) {
+    @IBAction func resourcesButtonTapped(_ sender: ARResourcesButton) {
         
 //        if sender.titleLabel?.text == "Go to AR Experience" {
 //            performSegue(withIdentifier: "PresentExplorationMode", sender: self)
@@ -110,8 +110,13 @@ class MuseumDetailsViewController: UIViewController {
 
                             if remotePaintingsIDs == localPaintingsIDs {
                                 print("second cond: OK")
+                                
+                                self.resourcesButton.customState = .preparing
+//                                fetchPaintingsFromCoreData()
+                                
                             } else {
                                 print("second condition: failed")
+                                self.resavePaintingsLocally(jsonPaintingsArray: paintingsArray, context: self.context)
                             }
 
                         } else {
@@ -150,8 +155,8 @@ class MuseumDetailsViewController: UIViewController {
             self.logoImageView.downloadImage(from: urlToLogoImage)
             
             // button
-            self.downloadResourcesButton.layer.cornerRadius = 10
-            self.downloadResourcesButton.clipsToBounds = true
+            self.resourcesButton.layer.cornerRadius = 10
+            self.resourcesButton.clipsToBounds = true
 //            self.automaticallyAdjustsScrollViewInsets = false
         }
     }
