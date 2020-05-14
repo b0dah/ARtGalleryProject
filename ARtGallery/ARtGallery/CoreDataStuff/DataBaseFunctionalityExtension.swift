@@ -66,15 +66,70 @@ extension MuseumDetailsViewController {
     
     func resavePaintingsLocally(jsonPaintingsArray: [[String: AnyObject]], context: NSManagedObjectContext) {
         
-        jsonPaintingsArray.map { self.createPaintingEntity(context: context, dictionary: $0)}
+        let dispatchGroup = DispatchGroup()
         
-        do {
-            try context.save()
-            print("Saved!")
-        } catch let error {
-            print(error)
+        clearLocalPaintings(context: context)
+        
+        jsonPaintingsArray.map {
+            
+            dispatchGroup.enter()
+            
+            guard let imageName = $0[PaintingKeys.imageName] as? String else {
+                print("Can't parse imageName")
+                return
+            }
+            
+            let currentPaintingDict = $0
+            let currentEntity = self.createPaintingEntity(context: context, dictionary: currentPaintingDict)
+            
+            self.downloadImageDataWithCompletion(from: Constants.paintingsReproductionsPath + imageName) {
+                (data) in
+                if let imageData = data {
+                    currentEntity?.image = imageData
+                }
+                dispatchGroup.leave()
+            }
+        }
+        
+        
+        dispatchGroup.notify(queue: .global()) {
+        
+            do {
+                try context.save()
+                print("Saved!")
+            } catch let error {
+                print(error)
+            }
         }
     }
+    
+    
+    func clearLocalPaintings(context: NSManagedObjectContext) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: PaintingKeys.entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError {
+            print("error \(error) \(error.userInfo)")
+        }
+    }
+    
+    
+    func fetchPaintingsFromLocalStorage(context: NSManagedObjectContext) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: PaintingKeys.entityName)
+        
+        do {
+            self.paintings = try context.fetch(fetchRequest) as? [Painting]
+            print("fetched!")
+        } catch let error as NSError {
+            print("Couldn't fetch full paintings : \(error) \(error.userInfo)")
+        }
+    }
+    
         
     
     

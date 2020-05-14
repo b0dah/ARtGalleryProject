@@ -112,7 +112,8 @@ class MuseumDetailsViewController: UIViewController {
                                 print("second cond: OK")
                                 
                                 self.resourcesButton.customState = .preparing
-//                                fetchPaintingsFromCoreData()
+                                self.fetchPaintingsFromLocalStorage(context: self.context)
+                                print(self.paintings?.count)                                
                                 
                             } else {
                                 print("second condition: failed")
