@@ -6,31 +6,9 @@
 //  Copyright © 2020 Иван Романов. All rights reserved.
 //
 
-import UIKit
-import ARKit
 
-class MuseumDetailsViewController: UIViewController {
-    
-    // Outlets
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var appearenceImage: UIImageView!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var resourcesButton: ARResourcesButton!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    // Class Fields
-    var paintings : [Painting]?
-    var referenceImages = Set<ARReferenceImage>()
-    
-    var museum: Museum?
-    var museumAssetCatalogName: String?
-    
-    let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
-    
-    @IBAction func resourcesButtonTapped(_ sender: ARResourcesButton) {
-        
+
+
 //        if sender.titleLabel?.text == "Go to AR Experience" {
 //            performSegue(withIdentifier: "PresentExplorationMode", sender: self)
 //            return
@@ -77,65 +55,126 @@ class MuseumDetailsViewController: UIViewController {
 //        } else {
 //            print("No museum object")
 //        }
+
+
+
+
+//************************************************************************************
+
+
+//
+//                let dispatchGroup = DispatchGroup()
+//
+//                //1.
+//                dispatchGroup.enter()
+//
+//                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (paintingsJSONArray) in
+//
+//                    guard let array = paintingsJSONArray else {
+//                        print("No paintings data retirved!")
+//                        return
+//                    }
+//
+//                    array.map {
+//
+//                        guard let painting = self.createPaintingEntity(context: self.context, dictionary: $0) else {
+//                            print("Couldn't decode the entity")
+//                            return
+//                        }
+//
+//                        let insideDispatchGroup = DispatchGroup()
+//                        insideDispatchGroup.enter()
+//
+//                        self.downloadImageDataWithCompletion(from: Constants.paintingsReproductionsPath + painting.imageName) {
+//                            (data) in
+//                            if let imageData = data {
+//                                painting.image = imageData
+//                                insideDispatchGroup.leave()
+//                            }
+//                        }
+//
+//                        insideDispatchGroup.wait()
+//
+//                        self.paintings?.append(painting)
+//                    }
+//
+//                    // leave after all paintings fully constructed
+//                    dispatchGroup.leave()
+//                }
+//
+//                // wait for all paintings to be fully constructed
+//                  dispatchGroup.wait()
+
+import UIKit
+import ARKit
+
+class MuseumDetailsViewController: UIViewController {
+    
+    // Outlets
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var appearenceImage: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var resourcesButton: ARResourcesButton!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    // Class Fields
+    var paintingsJSONArray: [[String: AnyObject]]?
+    var paintings : [Painting]?
+    var referenceImages = Set<ARReferenceImage>()
+    var museum: Museum?
+    
+    let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
+    
+    @IBAction func resourcesButtonTapped(_ sender: ARResourcesButton) {
+        
+
+        
+        print("TAPPPED")
         
         switch sender.customState {
+            
         case .readyToGoToAR:
             performSegue(withIdentifier: "PresentExplorationMode", sender: self)
             return
+            
         case .readyToDownload:
-
-            guard let museum = museum else {
-                print("No museum passed!")
-                return
+            
+            sender.customState = .downloading
+            
+            guard let paintingsJSONArray = self.paintingsJSONArray else {
+                fatalError("no array downloaded")
             }
-                
-            DispatchQueue.global().async {             // ! moving to Secondary thread
-                
+            
+            DispatchQueue.global().async { // ! moving to Secondary thread
+            
                 let dispatchGroup = DispatchGroup()
                 
-                //1.
                 dispatchGroup.enter()
                 
-                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (paintingsJSONArray) in
-                    
-                    guard let array = paintingsJSONArray else {
-                        print("No paintings data retirved!")
+                // Sself.AVE TO COREDATA
+                self.resavePaintingsLocally(jsonPaintingsArray: paintingsJSONArray, context: self.context) { (error) in
+                    guard error ==  nil else {
+                        dispatchGroup.leave()
                         return
                     }
-                        
-                    array.map {
-                        
-                        guard let painting = self.createPaintingEntity(context: self.context, dictionary: $0) else {
-                            print("Couldn't decode the entity")
-                            return
-                        }
-                        
-                        let insideDispatchGroup = DispatchGroup()
-                        insideDispatchGroup.enter()
-                        
-                        self.downloadImageDataWithCompletion(from: Constants.paintingsReproductionsPath + painting.imageName) {
-                            (data) in
-                            if let imageData = data {
-                                painting.image = imageData
-                                insideDispatchGroup.leave()
-                            }
-                        }
-                        
-                        insideDispatchGroup.wait()
-                        
-                        self.paintings?.append(painting)
-                    }
                     
-                    // leave after all paintings fully constructed
                     dispatchGroup.leave()
                 }
                 
-                // wait for all paintings to be fully constructed
                 dispatchGroup.wait()
                 
-                // SAVE TO COREDATA
                 
-                //3.
+                self.fetchPaintingsFromLocalStorage(context: self.context) {
+                    (error) in
+                    
+                    guard error == nil else {
+                        print("fetch failed")
+                        return
+                    }
+                }
+                
                 dispatchGroup.enter()
                 self.createReferenceImageSet{
                     dispatchGroup.leave()
@@ -144,8 +183,12 @@ class MuseumDetailsViewController: UIViewController {
                 
                 // To main thread
                 DispatchQueue.main.async {
-                    print("Number of assets created: \(self.referenceImages.count)")
-                    self.resourcesButton.customState = .readyToGoToAR
+                    guard self.referenceImages.count > 0 else {
+                        print("No assets created")
+                        return
+                    }
+                    print("Number of new assets created: \(self.referenceImages.count)")
+                    sender.customState = .readyToGoToAR
                 }
             }
             
@@ -165,78 +208,101 @@ class MuseumDetailsViewController: UIViewController {
             
         updateUI()
         
+        self.resourcesButton.customState = .preparing
         // MARK:- lifecycle
         
-        ///1. fetch paintings array and check for relevance
-        fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (array) in
-            if let paintingsArray = array {
-                print()
+        DispatchQueue.global().async {
+            
+            let dispatchGroup = DispatchGroup()
 
-                // Compare Counts
-                print("Count in DB is :")
-                if let localPaintingsCount = self.getNumberOfPaintingsForMuseum(museumId: museum.id, context: self.context) {
+            ///1. fetch paintings array
+            dispatchGroup.enter()
 
-                    if paintingsArray.count == localPaintingsCount {
-                        print("first cond: OK")
-
-                        // Compare IDs Sets
-                        if let remotePaintingsIDs = self.getPaintingsIDsForMuseumFromArray(paintingsArray: paintingsArray)
-                            , let localPaintingsIDs = self.getPaintingsIDsForMuseumFromCoreData(museumId: museum.id, context: self.context) {
-
-                            if remotePaintingsIDs == localPaintingsIDs {
-                                print("second cond: OK")
-                                
-                                self.resourcesButton.customState = .preparing
-                                self.fetchPaintingsFromLocalStorage(context: self.context) {
-                                    (error) in
-                                    
-                                    guard error == nil else {
-                                        print("fetch failed")
-                                        return
-                                    }
-                                    
-                                    let dispatchGroup = DispatchGroup()
-                                    dispatchGroup.enter()
-                                    self.createReferenceImageSet{
-                                        dispatchGroup.leave()
-                                    }
-                                    dispatchGroup.wait()
-                                    
-                                    DispatchQueue.main.async {
-                                        guard self.referenceImages.count > 0 else {
-                                            print("No assets created")
-                                            return
-                                        }
-                                        print("Number of assets created: \(self.referenceImages.count)")
-                                        self.resourcesButton.customState = .readyToGoToAR
-                                    }
-                                }
-                                
-                            } else {
-                                print("second condition: failed")
-                                self.resavePaintingsLocally(jsonPaintingsArray: paintingsArray, context: self.context)
-                            }
-
-                        } else {
-                            print("Makin' up IDs list failed!")
-                        }
-                    }
-                    else {
-                        print("first condition: failed")
-                        self.resavePaintingsLocally(jsonPaintingsArray: paintingsArray, context: self.context)
-                    }
-
+            self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (array) in
+                if array != nil {
+                    self.paintingsJSONArray = array
+                    dispatchGroup.leave()
                 } else {
-                    print("Can't count local paintings")
+                    print("Downloaded nil array")
+                    dispatchGroup.leave()
                 }
-            } else {
-                print("nil dict passed in the closure")
+            }
+            dispatchGroup.wait()
+
+            
+            guard let paintingsJSONArray = self.paintingsJSONArray else {
+                print("nil array")
+                return
+            }
+
+            // 2. MARK: - Checks for relevance
+            ///. Compare Counts
+            guard let localPaintingsCount = self.getNumberOfPaintingsForMuseum(museumId: museum.id, context: self.context) else {
+                print("Can't count local paintings")
+                self.switchResourcesButtonToReadyToDownloadState()
+                return
+            }
+
+            /// Compare IDs Sets
+            guard let remotePaintingsIDs = self.getPaintingsIDsForMuseumFromArray(paintingsArray: paintingsJSONArray), let localPaintingsIDs = self.getPaintingsIDsForMuseumFromCoreData(museumId: museum.id, context: self.context) else {
+                print("Makin' up IDs list failed!")
+                self.switchResourcesButtonToReadyToDownloadState()
+                return
+            }
+
+            guard paintingsJSONArray.count == localPaintingsCount  else {
+                print("first condition: failed")
+                self.resourcesButton.customState = .readyToDownload
+                return
+            }
+            print("first cond: OK")
+
+            guard remotePaintingsIDs == localPaintingsIDs else {
+                print("second condition: failed")
+                self.switchResourcesButtonToReadyToDownloadState()
+                return
+            }
+            print("second cond: OK")
+
+            // Set in CoreData storage is relevant
+//            dispatchGroup.enter()
+            self.fetchPaintingsFromLocalStorage(context: self.context) { (error) in
+                guard error == nil else {
+                    print("fetch failed")
+//                    dispatchGroup.leave()
+                    return
+                }
+//                dispatchGroup.leave()
+            }
+//            dispatchGroup.wait()
+
+            ///2
+            dispatchGroup.enter()
+            self.createReferenceImageSet{
+                dispatchGroup.leave()
+            }
+            dispatchGroup.wait()
+
+            ///3
+            DispatchQueue.main.async {
+                guard self.referenceImages.count > 0 else {
+                    print("No assets created")
+                    return
+                }
+                print("Number of assets created: \(self.referenceImages.count)")
+                self.resourcesButton.customState = .readyToGoToAR
             }
 
         }
-        
     }
     
+    func switchResourcesButtonToReadyToDownloadState() {
+        DispatchQueue.main.async {
+            self.resourcesButton.customState = .readyToDownload
+        }
+    }
+        
+        
     // MARK: - UI Drawing
     func updateUI() {
         if let museum = museum {

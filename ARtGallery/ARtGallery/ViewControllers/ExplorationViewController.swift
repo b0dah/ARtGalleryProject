@@ -40,12 +40,6 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
         }
         print(self.referenceImages?.count)
         
-        // Ref Images Set Name
-//        museumAssetCatalogName = museum.name
-//        guard let refereceImages = ARReferenceImage.referenceImages(inGroupNamed: museumAssetCatalogName!, bundle: nil) else {
-//            fatalError("Missing expected asset catalog resources.")
-//        }
-//
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = self.referenceImages!
 

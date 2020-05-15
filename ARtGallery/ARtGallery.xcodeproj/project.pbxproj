@@ -10,7 +10,6 @@
 		BC11F725244B505600734F60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F724244B505600734F60 /* AppDelegate.swift */; };
 		BC11F727244B505600734F60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F726244B505600734F60 /* SceneDelegate.swift */; };
 		BC11F72C244B505600734F60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC11F72A244B505600734F60 /* Main.storyboard */; };
-		BC11F72E244B505A00734F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC11F72D244B505A00734F60 /* Assets.xcassets */; };
 		BC11F731244B505A00734F60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC11F72F244B505A00734F60 /* LaunchScreen.storyboard */; };
 		BC11F739244C5D2300734F60 /* ExplorationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F738244C5D2300734F60 /* ExplorationViewController.swift */; };
 		BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */; };
@@ -26,6 +25,7 @@
 		BC4CB37A246D32B7008BE946 /* FetchImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB379246D32B7008BE946 /* FetchImageData.swift */; };
 		BC4CB37C246D40E8008BE946 /* DataBaseFunctionalityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB37B246D40E8008BE946 /* DataBaseFunctionalityExtension.swift */; };
 		BC59EC31246DBD61003785B2 /* ARResourcesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EC30246DBD61003785B2 /* ARResourcesButton.swift */; };
+		BC59EC33246EEC36003785B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC59EC32246EEC36003785B2 /* Assets.xcassets */; };
 		BC6538172451E2AC008B0063 /* ARSessionStateHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */; };
 		BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */; };
 		BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */; };
@@ -51,7 +51,6 @@
 		BC11F724244B505600734F60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC11F726244B505600734F60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BC11F72B244B505600734F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BC11F72D244B505A00734F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC11F730244B505A00734F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC11F732244B505A00734F60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC11F738244C5D2300734F60 /* ExplorationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		BC4CB379246D32B7008BE946 /* FetchImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageData.swift; sourceTree = "<group>"; };
 		BC4CB37B246D40E8008BE946 /* DataBaseFunctionalityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseFunctionalityExtension.swift; sourceTree = "<group>"; };
 		BC59EC30246DBD61003785B2 /* ARResourcesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARResourcesButton.swift; sourceTree = "<group>"; };
+		BC59EC32246EEC36003785B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionStateHandlerExtension.swift; sourceTree = "<group>"; };
 		BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionHandlingExtension.swift; sourceTree = "<group>"; };
 		BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectsForRegognizedImageExtension.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 				BC11F774244EEBA600734F60 /* Models */,
 				BCCE03CF2466CFA90017CD56 /* CoreDataStuff */,
 				BC11F72A244B505600734F60 /* Main.storyboard */,
-				BC11F72D244B505A00734F60 /* Assets.xcassets */,
+				BC59EC32246EEC36003785B2 /* Assets.xcassets */,
 				BCFF49A22462E18E0081D23B /* CustomUI */,
 				BC11F772244EEBA600734F60 /* Extensions */,
 				BC11F72F244B505A00734F60 /* LaunchScreen.storyboard */,
@@ -299,7 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC11F731244B505A00734F60 /* LaunchScreen.storyboard in Resources */,
-				BC11F72E244B505A00734F60 /* Assets.xcassets in Resources */,
+				BC59EC33246EEC36003785B2 /* Assets.xcassets in Resources */,
 				BC11F72C244B505600734F60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,8 +32,11 @@ class ARResourcesButton: LoadingButton {
                 setImage(nil, for: .normal)
                 isEnabled = false
             case .readyToDownload:
+                isEnabled = true
                 setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
                 setActiveAppearence()
+            case .readyToGoToAR:
+                isEnabled = true
             default:
                 hideLoading()
             }

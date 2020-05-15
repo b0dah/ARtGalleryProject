@@ -64,7 +64,7 @@ extension MuseumDetailsViewController {
         }
     }
     
-    func resavePaintingsLocally(jsonPaintingsArray: [[String: AnyObject]], context: NSManagedObjectContext) {
+    func resavePaintingsLocally(jsonPaintingsArray: [[String: AnyObject]], context: NSManagedObjectContext, completion: @escaping (Error?)->Void) {
         
         let dispatchGroup = DispatchGroup()
         
@@ -97,8 +97,10 @@ extension MuseumDetailsViewController {
             do {
                 try context.save()
                 print("Saved!")
+                completion(nil)
             } catch let error {
                 print(error)
+                completion(error)
             }
         }
     }
@@ -124,7 +126,7 @@ extension MuseumDetailsViewController {
         
         do {
             self.paintings = try context.fetch(fetchRequest) as? [Painting]
-            print("fetched!")
+            print("fetched! [\(self.paintings?.count)]")
             DispatchQueue.main.async {
                 completion(nil)
             }
