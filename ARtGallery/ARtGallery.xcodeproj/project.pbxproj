@@ -34,7 +34,6 @@
 		BC8AC5E7245DC7570039CB67 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5E6245DC7570039CB67 /* URLExtension.swift */; };
 		BC8AC5E9245DD0CE0039CB67 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5E8245DD0CE0039CB67 /* Artist.swift */; };
 		BC8AC5EB245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AC5EA245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift */; };
-		BCCA8A2D245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */; };
 		BCCE03D22466CFCE0017CD56 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCCE03D02466CFCE0017CD56 /* Model.xcdatamodeld */; };
 		BCCE03D42466D9D00017CD56 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE03D32466D9D00017CD56 /* DataBaseManager.swift */; };
 		BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */; };
@@ -77,7 +76,6 @@
 		BC8AC5E6245DC7570039CB67 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		BC8AC5E8245DD0CE0039CB67 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		BC8AC5EA245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImagesToReferenceImagesExtension.swift; sourceTree = "<group>"; };
-		BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDynamicDetectionImageSet.swift; sourceTree = "<group>"; };
 		BCCE03D12466CFCE0017CD56 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		BCCE03D32466D9D00017CD56 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		BCD19781244EF52E00530CE3 /* MuseumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewCell.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */,
 				BC65381B2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift */,
 				BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */,
-				BCCA8A2C245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift */,
 			);
 			path = ARSceneStuff;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */,
 				BC4CB36F246D1DAA008BE946 /* Painting+CoreDataClass.swift in Sources */,
 				BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */,
-				BCCA8A2D245D63FB00AFC81A /* CreateDynamicDetectionImageSet.swift in Sources */,
 				BC8AC5E7245DC7570039CB67 /* URLExtension.swift in Sources */,
 				BC4CB37C246D40E8008BE946 /* DataBaseFunctionalityExtension.swift in Sources */,
 				BC8AC5E9245DD0CE0039CB67 /* Artist.swift in Sources */,
@@ -500,7 +496,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "e-bodah.ARtGallery";
+				PRODUCT_BUNDLE_IDENTIFIER = Kubsu.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,7 +515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "e-bodah.ARtGallery";
+				PRODUCT_BUNDLE_IDENTIFIER = Kubsu.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

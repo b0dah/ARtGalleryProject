@@ -26,6 +26,7 @@ class ARResourcesButton: LoadingButton {
                 isEnabled = false
             case .downloading:
                 showLoading()
+                isEnabled = false
             case .preparing:
                 hideLoading()
                 setImage(nil, for: .normal)
