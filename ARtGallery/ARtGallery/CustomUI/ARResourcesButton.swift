@@ -13,38 +13,44 @@ enum ARResourcesButtonState: String {
     case preparing = "We are preparing all u need"
     case readyToDownload = "Download AR Resources "
     case downloading = "Downloading"
-    case readyToGoToAR = "Go to AR Experience"
+    case readyToGoToAR = "Go to AR Experience "
 }
 
 class ARResourcesButton: LoadingButton {
     var customState: ARResourcesButtonState = .checking  {
         didSet {
-            self.setTitle(customState.rawValue, for: .normal)
-            
-            switch customState {
-            case .checking:
-                isEnabled = false
-            case .downloading:
-                showLoading()
-                isEnabled = false
-            case .preparing:
-                hideLoading()
-                setImage(nil, for: .normal)
-                isEnabled = false
-            case .readyToDownload:
-                isEnabled = true
-                setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
-                setActiveAppearence()
-            case .readyToGoToAR:
-                isEnabled = true
-            default:
-                hideLoading()
+            DispatchQueue.main.async {
+                self.setTitle(self.customState.rawValue, for: .normal)
+
+                switch self.customState {
+                case .checking:
+                    self.isEnabled = false
+                case .downloading:
+                    self.showLoading()
+                    self.isEnabled = false
+                case .preparing:
+                    self.hideLoading()
+                    self.setImage(nil, for: .normal)
+                    self.isEnabled = false
+                case .readyToDownload:
+                    self.isEnabled = true
+                    self.setReadyToDownloadAppearence()
+                case .readyToGoToAR:
+                    self.hideLoading()
+                    self.isEnabled = true
+                    self.setReadyToSegueAppearence()
+                }
             }
         }
     }
     
-    func setActiveAppearence() {
+    func setReadyToDownloadAppearence() {
+        setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
+    }
+    
+    func setReadyToSegueAppearence() {
         self.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 106/255, alpha: 1.0)
+        setImage(UIImage(systemName: "arrow.left.circle"), for: .normal)
     }
     
 }

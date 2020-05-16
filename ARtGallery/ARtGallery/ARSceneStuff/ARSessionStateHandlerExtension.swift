@@ -49,7 +49,7 @@ extension ExplorationViewController: ARSessionDelegate {
             }
         case .normal:
             feedbackLabel.isHidden = false
-            feedbackLabel.text = "Point camera at any picture!"
+            feedbackLabel.text = "Point camera at any painting!"
         case .notAvailable:
             feedbackLabel.isHidden = false
             feedbackLabel.text = "Camera tracking is not available for now"
