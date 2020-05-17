@@ -11,6 +11,7 @@ import UIKit
 extension MuseumDetailsViewController {
 
     func downloadImageDataWithCompletion(from url: String, completion: @escaping (Data?)->Void) {
+        print(url)
         guard let url = URL(string: url) else {
             print("Wrong IMAGE URL!")
             completion(nil)

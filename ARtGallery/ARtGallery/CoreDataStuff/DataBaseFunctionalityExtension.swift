@@ -79,8 +79,7 @@ extension MuseumDetailsViewController {
                 return
             }
             
-            let currentPaintingDict = $0
-            let currentEntity = self.createPaintingEntity(context: context, dictionary: currentPaintingDict)
+            let currentEntity = self.createPaintingEntity(context: context, dictionary: $0)
             
             self.downloadImageDataWithCompletion(from: Constants.paintingsReproductionsPath + imageName) {
                 (data) in
@@ -89,6 +88,21 @@ extension MuseumDetailsViewController {
                 }
                 dispatchGroup.leave()
             }
+            dispatchGroup.wait()
+                    
+            guard let artistPortraitImageTitle = currentEntity?.author?.portraitImageTitle else {
+                print("Can't parse artistPortraitImageName")
+                return
+            }
+            
+            dispatchGroup.enter()
+            self.downloadImageDataWithCompletion(from: Constants.artistsPortraitsPath + artistPortraitImageTitle) { (data) in
+                if let imageData = data {
+                    currentEntity?.author?.portraitImage = imageData
+                }
+                dispatchGroup.leave()
+            }
+            dispatchGroup.wait() // necessary
         }
         
         
