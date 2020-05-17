@@ -30,8 +30,8 @@
             filePath = "ARtGallery/ViewControllers/MuseumDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "resourcesButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "ARtGallery/ViewControllers/MuseumDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -94,8 +94,8 @@
             filePath = "ARtGallery/ViewControllers/MuseumDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

@@ -56,54 +56,7 @@
 //            print("No museum object")
 //        }
 
-
-
-
 //************************************************************************************
-
-
-//
-//                let dispatchGroup = DispatchGroup()
-//
-//                //1.
-//                dispatchGroup.enter()
-//
-//                self.fetchPaintingsListForMuseum(url: Constants.paintingListForPArticularMuseumEndpoint, museumId: museum.id) { (paintingsJSONArray) in
-//
-//                    guard let array = paintingsJSONArray else {
-//                        print("No paintings data retirved!")
-//                        return
-//                    }
-//
-//                    array.map {
-//
-//                        guard let painting = self.createPaintingEntity(context: self.context, dictionary: $0) else {
-//                            print("Couldn't decode the entity")
-//                            return
-//                        }
-//
-//                        let insideDispatchGroup = DispatchGroup()
-//                        insideDispatchGroup.enter()
-//
-//                        self.downloadImageDataWithCompletion(from: Constants.paintingsReproductionsPath + painting.imageName) {
-//                            (data) in
-//                            if let imageData = data {
-//                                painting.image = imageData
-//                                insideDispatchGroup.leave()
-//                            }
-//                        }
-//
-//                        insideDispatchGroup.wait()
-//
-//                        self.paintings?.append(painting)
-//                    }
-//
-//                    // leave after all paintings fully constructed
-//                    dispatchGroup.leave()
-//                }
-//
-//                // wait for all paintings to be fully constructed
-//                  dispatchGroup.wait()
 
 import UIKit
 import ARKit
@@ -128,11 +81,7 @@ class MuseumDetailsViewController: UIViewController {
     let context = DataBaseManager.sharedInstance.persistentContainer.viewContext
     
     @IBAction func resourcesButtonTapped(_ sender: ARResourcesButton) {
-        
-
-        
-        print("TAPPPED")
-        
+                
         switch sender.customState {
             
         case .readyToGoToAR:
@@ -162,7 +111,6 @@ class MuseumDetailsViewController: UIViewController {
                     
                     dispatchGroup.leave()
                 }
-                
                 dispatchGroup.wait()
                 
                 
@@ -200,6 +148,8 @@ class MuseumDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(Constants.pathToDocuments)
         
         guard let museum = museum else {
             print("No museum passed!")
