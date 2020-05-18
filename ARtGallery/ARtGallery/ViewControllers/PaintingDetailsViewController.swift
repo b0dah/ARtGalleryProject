@@ -14,6 +14,7 @@ class PaintingDetailsViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var authorImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var authorView: UIView!
     @IBOutlet weak var linkButton: UIButton!
     
     var painting: Painting?
@@ -40,11 +41,32 @@ class PaintingDetailsViewController: UIViewController {
             if let authorImageData = author.portraitImage {
                 self.authorImageView.image = UIImage(data: authorImageData)
             }
+            
+            // touch Handler
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.authorViewTapped(_:)))
+            self.authorView.addGestureRecognizer(tapRecognizer)
         }
         
         self.ttitleLabel.text = painting?.title
         self.descriptionLabel.text = painting!.details
+        self.linkButton.layer.cornerRadius = self.linkButton.frame.height/4
         
+    }
+    
+    @objc func authorViewTapped(_ sender: UITapGestureRecognizer? = nil) {
+        performSegue(withIdentifier: "PresentArtistDetails", sender: self)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let artistToPass = self.painting?.author else {
+            fatalError("No artist to pass")
+        }
+        
+        if let destination = segue.destination as? ArtistDetailsViewController {
+            destination.artist = artistToPass
+        } else {
+            print("wrong segue")
+        }
     }
 }

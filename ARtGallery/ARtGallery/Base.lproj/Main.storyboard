@@ -519,7 +519,7 @@
                                                 <rect key="frame" x="0.0" y="385.5" width="375" height="188.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-sk-iic">
-                                                        <rect key="frame" x="10" y="10" width="355" height="168.5"/>
+                                                        <rect key="frame" x="10" y="20" width="355" height="148.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -527,8 +527,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="KWK-sk-iic" secondAttribute="bottom" constant="10" id="Nfr-N4-C84"/>
-                                                    <constraint firstItem="KWK-sk-iic" firstAttribute="top" secondItem="j5H-HV-hfp" secondAttribute="top" constant="10" id="Qjt-Eq-bTh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="KWK-sk-iic" secondAttribute="bottom" constant="20" id="Nfr-N4-C84"/>
+                                                    <constraint firstItem="KWK-sk-iic" firstAttribute="top" secondItem="j5H-HV-hfp" secondAttribute="top" constant="20" id="Qjt-Eq-bTh"/>
                                                     <constraint firstItem="KWK-sk-iic" firstAttribute="leading" secondItem="j5H-HV-hfp" secondAttribute="leading" constant="10" id="Saw-AH-UKy"/>
                                                     <constraint firstAttribute="trailing" secondItem="KWK-sk-iic" secondAttribute="trailing" constant="10" id="nac-dr-Lwu"/>
                                                 </constraints>
@@ -562,7 +562,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="0.78483518835616439" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="2hs-TE-8Dw" secondAttribute="trailing" id="IDq-Ce-L2L"/>
                                     <constraint firstItem="2hs-TE-8Dw" firstAttribute="top" secondItem="lvx-6D-33t" secondAttribute="top" id="aRg-5y-Rek"/>
@@ -587,6 +587,7 @@
                     <connections>
                         <outlet property="authorImageView" destination="7be-Da-ZaG" id="Ur9-Bq-rpt"/>
                         <outlet property="authorLabel" destination="fgO-0Z-FhN" id="NPY-r2-iOH"/>
+                        <outlet property="authorView" destination="gFn-z6-RZN" id="tuF-10-uHX"/>
                         <outlet property="descriptionLabel" destination="KWK-sk-iic" id="nXj-3d-TOe"/>
                         <outlet property="linkButton" destination="eEp-lU-eEn" id="Qn3-zc-uuT"/>
                         <outlet property="paintingImageView" destination="8gU-kr-bpO" id="m1E-Gt-A4Z"/>
@@ -626,7 +627,7 @@
         <!--Museum-->
         <scene sceneID="v7q-8N-yBq">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="Z2N-sn-JIO" customClass="MuseumDetailsViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="Z2N-sn-JIO" customClass="ArtistDetailsViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5mq-Qc-8t7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -713,7 +714,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywt-SA-a79">
                                                 <rect key="frame" x="0.0" y="679.5" width="375" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aii-7W-dMD" customClass="ARResourcesButton" customModule="ARtGallery" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aii-7W-dMD">
                                                         <rect key="frame" x="65" y="10" width="245" height="40"/>
                                                         <color key="backgroundColor" red="0.6613623018" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -723,9 +724,6 @@
                                                         <state key="normal" title="Download AR resources" image="arrow.left.circle" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="resourcesButtonTapped:" destination="Z2N-sn-JIO" eventType="touchUpInside" id="qTK-ah-hDb"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -763,12 +761,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Museum" largeTitleDisplayMode="never" id="NVJ-k8-kyI"/>
                     <connections>
-                        <outlet property="appearenceImage" destination="lhY-gr-UAX" id="L8U-8a-Ckv"/>
-                        <outlet property="descriptionLabel" destination="qri-Qx-XrQ" id="uaf-cG-aWL"/>
-                        <outlet property="locationLabel" destination="cQr-fn-gMj" id="aH0-sW-7XI"/>
-                        <outlet property="logoImageView" destination="ssD-TD-hyX" id="s9t-j9-9iu"/>
-                        <outlet property="nameLabel" destination="lOR-hl-4Nd" id="4LW-Tk-ZCZ"/>
-                        <outlet property="resourcesButton" destination="Aii-7W-dMD" id="Fhw-Zz-H49"/>
+                        <outlet property="countryFlagImageView" destination="ssD-TD-hyX" id="xtG-VM-4D3"/>
+                        <outlet property="countryLabel" destination="cQr-fn-gMj" id="Vxe-pc-Yl8"/>
+                        <outlet property="descriptionLabel" destination="qri-Qx-XrQ" id="xwO-mg-IeH"/>
+                        <outlet property="linkButton" destination="Aii-7W-dMD" id="FrW-9v-AYy"/>
+                        <outlet property="nameLabel" destination="lOR-hl-4Nd" id="EUo-en-6Iv"/>
+                        <outlet property="portraitImageView" destination="lhY-gr-UAX" id="Buv-X8-Jp9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5J-yn-sBw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

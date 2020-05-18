@@ -15,6 +15,7 @@
 		BC11F776244EEBA600734F60 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */; };
 		BC11F777244EEBA600734F60 /* Museum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F775244EEBA600734F60 /* Museum.swift */; };
 		BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */; };
+		BC170672247323A60043BA6D /* ArtistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC170671247323A60043BA6D /* ArtistDetailsViewController.swift */; };
 		BC418C642471B347001D9387 /* RecognizedPainting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C622471B347001D9387 /* RecognizedPainting+CoreDataClass.swift */; };
 		BC418C652471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C632471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift */; };
 		BC418C672471BAC0001D9387 /* RecognizedPaintingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C662471BAC0001D9387 /* RecognizedPaintingsKeys.swift */; };
@@ -63,6 +64,7 @@
 		BC11F773244EEBA600734F60 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		BC11F775244EEBA600734F60 /* Museum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Museum.swift; sourceTree = "<group>"; };
 		BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumSelectionViewController.swift; sourceTree = "<group>"; };
+		BC170671247323A60043BA6D /* ArtistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArtistDetailsViewController.swift; path = ARtGallery/ArtistDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BC418C622471B347001D9387 /* RecognizedPainting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecognizedPainting+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BC418C632471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecognizedPainting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC418C662471BAC0001D9387 /* RecognizedPaintingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedPaintingsKeys.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */,
 				BC418C6A24731673001D9387 /* PaintingDetailsViewController.swift */,
+				BC170671247323A60043BA6D /* ArtistDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */,
+				BC170672247323A60043BA6D /* ArtistDetailsViewController.swift in Sources */,
 				BC65381F245321B3008B0063 /* ARConstants.swift in Sources */,
 				BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */,
 				BC4CB36F246D1DAA008BE946 /* Painting+CoreDataClass.swift in Sources */,
