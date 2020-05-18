@@ -16,6 +16,7 @@ class PaintingDetailsViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var authorView: UIView!
     @IBOutlet weak var linkButton: UIButton!
+    @IBOutlet weak var pictureView: UIView!
     
     var painting: Painting?
     
@@ -34,12 +35,17 @@ class PaintingDetailsViewController: UIViewController {
         
         if let imageData = painting?.image {
             self.paintingImageView.image = UIImage(data: imageData)
+            
+            
         }
         
         if let author = painting?.author {
             self.authorLabel.text = author.name
             if let authorImageData = author.portraitImage {
                 self.authorImageView.image = UIImage(data: authorImageData)
+                
+                let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.paintingPictureTapped(_:)))
+                self.pictureView.addGestureRecognizer(tapRecognizer)
             }
             
             // touch Handler
@@ -58,15 +64,38 @@ class PaintingDetailsViewController: UIViewController {
         
     }
     
+    @objc func paintingPictureTapped(_ sender: UITapGestureRecognizer? = nil) {
+        performSegue(withIdentifier: "PresentPaintingZoomMode", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let artistToPass = self.painting?.author else {
-            fatalError("No artist to pass")
-        }
         
-        if let destination = segue.destination as? ArtistDetailsViewController {
-            destination.artist = artistToPass
-        } else {
-            print("wrong segue")
+        switch segue.identifier {
+        case "PresentArtistDetails":
+            guard let artistToPass = self.painting?.author else {
+                    fatalError("No artist to pass")
+                }
+                
+                if let destination = segue.destination as? ArtistDetailsViewController {
+                    destination.artist = artistToPass
+                } else {
+                    print("wrong segue")
+                }
+            
+        case "PresentPaintingZoomMode":
+            guard let imageDataToPass = self.painting?.image else {
+                fatalError("No image to pass")
+            }
+            
+            if let destination = segue.destination as? PaintingZoomModeViewController {
+                destination.imageData = imageDataToPass
+            } else {
+                print("wrong segue")
+            }
+            
+        default:
+            print("WRONG SEGUE")
         }
+    
     }
 }

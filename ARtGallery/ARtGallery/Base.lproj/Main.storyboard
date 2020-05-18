@@ -591,6 +591,7 @@
                         <outlet property="descriptionLabel" destination="KWK-sk-iic" id="nXj-3d-TOe"/>
                         <outlet property="linkButton" destination="eEp-lU-eEn" id="Qn3-zc-uuT"/>
                         <outlet property="paintingImageView" destination="8gU-kr-bpO" id="m1E-Gt-A4Z"/>
+                        <outlet property="pictureView" destination="dkT-iZ-K3I" id="uAH-K0-OdS"/>
                         <outlet property="ttitleLabel" destination="ZGL-34-3h2" id="muo-0n-Zmp"/>
                         <segue destination="Z2N-sn-JIO" kind="show" identifier="PresentArtistDetails" id="AWA-y9-AFv"/>
                         <segue destination="77e-t2-66d" kind="show" identifier="PresentPaintingZoomMode" id="EIM-NN-KFj"/>
@@ -600,25 +601,47 @@
             </objects>
             <point key="canvasLocation" x="3322" y="2679"/>
         </scene>
-        <!--View Controller-->
+        <!--Painting Zoom Mode View Controller-->
         <scene sceneID="rE2-kJ-ndg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="77e-t2-66d" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="77e-t2-66d" customClass="PaintingZoomModeViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZR-dc-xYd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-Dp-RDP">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-Dp-RDP">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Al-HKd">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ret-Al-HKd" firstAttribute="top" secondItem="p8d-Dp-RDP" secondAttribute="top" id="4l9-T5-ilD"/>
+                                    <constraint firstItem="ret-Al-HKd" firstAttribute="leading" secondItem="p8d-Dp-RDP" secondAttribute="leading" id="JN4-8L-Cc2"/>
+                                    <constraint firstAttribute="trailing" secondItem="ret-Al-HKd" secondAttribute="trailing" id="MNw-Kp-FSL"/>
+                                    <constraint firstAttribute="bottom" secondItem="ret-Al-HKd" secondAttribute="bottom" id="RNW-3S-Rb5"/>
+                                    <constraint firstItem="ret-Al-HKd" firstAttribute="bottom" secondItem="kns-nQ-78l" secondAttribute="bottom" id="aJ4-ls-Aak"/>
+                                    <constraint firstItem="ret-Al-HKd" firstAttribute="centerX" secondItem="p8d-Dp-RDP" secondAttribute="centerX" id="p0u-iy-LVe"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="JIh-ZQ-9Go"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="kns-nQ-78l"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="p8d-Dp-RDP" firstAttribute="trailing" secondItem="L1S-mS-TiW" secondAttribute="trailing" id="5Ah-lT-gP6"/>
+                            <constraint firstItem="p8d-Dp-RDP" firstAttribute="leading" secondItem="L1S-mS-TiW" secondAttribute="leading" id="A94-WJ-z1k"/>
+                            <constraint firstItem="p8d-Dp-RDP" firstAttribute="top" secondItem="L1S-mS-TiW" secondAttribute="top" id="hAG-8Y-tIu"/>
+                            <constraint firstItem="p8d-Dp-RDP" firstAttribute="bottom" secondItem="L1S-mS-TiW" secondAttribute="bottom" id="oCM-E6-1qf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="L1S-mS-TiW"/>
                     </view>
                     <navigationItem key="navigationItem" id="KMV-ej-GBO"/>
+                    <connections>
+                        <outlet property="imageView" destination="ret-Al-HKd" id="1vd-ls-21v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KJ-Lz-eeY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -715,13 +738,13 @@
                                                 <rect key="frame" x="0.0" y="679.5" width="375" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aii-7W-dMD">
-                                                        <rect key="frame" x="65" y="10" width="245" height="40"/>
-                                                        <color key="backgroundColor" red="0.6613623018" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="80" y="10" width="215" height="40"/>
+                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="0.36197024828767121" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="VrN-Tm-qSm"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Download AR resources" image="arrow.left.circle" catalog="system">
+                                                        <state key="normal" title="More on Wikipedia " image="arrow.left.circle" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
@@ -729,8 +752,8 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="Aii-7W-dMD" secondAttribute="bottom" constant="10" id="Dvw-Ce-RX6"/>
-                                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Aii-7W-dMD" secondAttribute="trailing" constant="65" id="IYd-RF-wn1"/>
-                                                    <constraint firstItem="Aii-7W-dMD" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ywt-SA-a79" secondAttribute="leading" constant="65" id="jHo-TP-pp4"/>
+                                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Aii-7W-dMD" secondAttribute="trailing" constant="80" id="IYd-RF-wn1"/>
+                                                    <constraint firstItem="Aii-7W-dMD" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ywt-SA-a79" secondAttribute="leading" constant="80" id="jHo-TP-pp4"/>
                                                     <constraint firstItem="Aii-7W-dMD" firstAttribute="top" secondItem="ywt-SA-a79" secondAttribute="top" constant="10" id="us2-PP-w1Y"/>
                                                 </constraints>
                                             </view>
