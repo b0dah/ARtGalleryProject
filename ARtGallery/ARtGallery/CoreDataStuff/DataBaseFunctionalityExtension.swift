@@ -140,7 +140,7 @@ extension MuseumDetailsViewController {
         
         do {
             self.paintings = try context.fetch(fetchRequest) as? [Painting]
-            print("fetched! [\(self.paintings?.count)]")
+            print("fetched! [ \(self.paintings?.count) ]")
             DispatchQueue.main.async {
                 completion(nil)
             }

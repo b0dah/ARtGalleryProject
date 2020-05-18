@@ -38,14 +38,33 @@ extension ExplorationViewController {
    }
     
     func createPaintingDescriptionNode(description: String, paintingSize: CGSize) -> SCNNode {
-        let descriptionTextGeometry = SCNText(string: description, extrusionDepth: 0.7)
+        
+        let descriptionTextGeometry = SCNText(string: description, extrusionDepth: 0.0)
+        descriptionTextGeometry.font = UIFont(name: "Helvetica", size: 12)
+        descriptionTextGeometry.firstMaterial?.diffuse.contents = UIColor.white
         let descriptionNode = SCNNode(geometry: descriptionTextGeometry)
         
-        // position
-        let xPosition = paintingSize.width/2.0 + ARConstants.scenePaddingWidth
         
-        descriptionNode.scale = SCNVector3(0.0008, 0.0008, 0.001)
-        descriptionNode.position = SCNVector3(xPosition, 0, 0.0)
+        let coefficient = ARConstants.descriptionNodeScaleCoefficient
+        descriptionNode.scale = SCNVector3(coefficient, coefficient, 0.001)
+        
+        // position
+        let portraitImageHeight = paintingSize.width/ARConstants.authorNodeScaleCoefficient * 1.33
+        
+        let (minVector, maxVector) = descriptionNode.boundingBox
+        
+        print(minVector)
+        print(maxVector)
+        
+        let textNodeHeight = CGFloat(maxVector.y - minVector.y) * ARConstants.descriptionNodeScaleCoefficient
+        print("TEXT NODE HEIGHT")
+        print(textNodeHeight)
+        
+        let xPosition = paintingSize.width/2.0 + ARConstants.scenePaddingWidth
+        let zPosition = -paintingSize.height/2.0 + portraitImageHeight + ARConstants.scenePaddingWidth + textNodeHeight
+        
+        
+        descriptionNode.position = SCNVector3(xPosition, 0, zPosition)
         
         // material
         let material = SCNMaterial()
@@ -61,23 +80,35 @@ extension ExplorationViewController {
     
     // MARK: - Author Node with Picture
     
-    func createAuthorNode(authorName: String, size: CGSize) -> SCNNode {
-        // image
-        let artistImageView = UIImage(named: authorName)
+    func createAuthorNode(author: Artist, size: CGSize) -> SCNNode {
+        
         let material = SCNMaterial()
-        material.diffuse.contents = artistImageView
+        
+        if let portraitImageData = author.portraitImage {
+            // image
+            let artistImage = UIImage(data: portraitImageData)
+            material.diffuse.contents = artistImage
+        }
+        else {
+            print("No author portait")
             
-        // size n position
-        let scaleCoefficient = CGFloat(4.0)
-        let imageGeometry = SCNPlane(width: size.width/scaleCoefficient, height: size.height/scaleCoefficient)
+            let dummyImage = UIImage(named: "imagePlaceHolder")
+            material.diffuse.contents = dummyImage
+        }
+        
+        // size
+        let portraitImageWidth = size.width/ARConstants.authorNodeScaleCoefficient
+        let portraitImageHeight = portraitImageWidth * 1.33
+        
+        let imageGeometry = SCNPlane(width: portraitImageWidth, height: portraitImageHeight)
         imageGeometry.materials = [material]
         
         let imageNode = SCNNode(geometry: imageGeometry)
         imageNode.eulerAngles.x = -.pi/2.0
         
-        let authorNodeXPosition = size.width/2.0 + size.width/scaleCoefficient/2.0 + ARConstants.scenePaddingWidth
-        let authorNodeZPosition = -size.height/2.0 + size.height/scaleCoefficient/2.0
-        imageNode.position = SCNVector3(authorNodeXPosition, 0.005, authorNodeZPosition)
+        let authorNodeXPosition = size.width/2.0 + portraitImageWidth/2.0 + ARConstants.scenePaddingWidth
+        let authorNodeZPosition = -size.height/2.0 + portraitImageHeight/2.0
+        imageNode.position = SCNVector3(authorNodeXPosition, 0.001, authorNodeZPosition)
             
         return imageNode
     }

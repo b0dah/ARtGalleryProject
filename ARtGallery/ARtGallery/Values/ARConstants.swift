@@ -10,4 +10,7 @@ import UIKit
 
 enum ARConstants {
     static let scenePaddingWidth = CGFloat(0.01)
+    
+    static let authorNodeScaleCoefficient = CGFloat(4.0)
+    static let descriptionNodeScaleCoefficient = CGFloat(0.0008)
 }

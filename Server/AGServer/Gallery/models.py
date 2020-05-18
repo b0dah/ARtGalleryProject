@@ -36,7 +36,7 @@ class Painting(models.Model):
 	id = models.AutoField(primary_key = True)
 	title = models.CharField(max_length = 255)
 	year = models.IntegerField()
-	description = models.CharField(max_length = 1000)
+	description = models.CharField(max_length = 5000)
 	imageTitle = models.CharField(max_length = 300)
 	physicalWidth = models.FloatField()
 	physicalHeight = models.FloatField()

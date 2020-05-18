@@ -21,8 +21,17 @@
         <attribute name="year" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist"/>
     </entity>
+    <entity name="RecognizedPainting" representedClassName="RecognizedPainting" syncable="YES">
+        <attribute name="paintingId" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="paintingId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <elements>
         <element name="Artist" positionX="-13143.99609375" positionY="-8247.29296875" width="128" height="133"/>
         <element name="Painting" positionX="-13385.34375" positionY="-8238.4453125" width="128" height="208"/>
+        <element name="RecognizedPainting" positionX="-13266" positionY="-8154" width="128" height="58"/>
     </elements>
 </model>

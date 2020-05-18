@@ -27,33 +27,50 @@ extension ExplorationViewController {
             self.feedbackLabel.text = "Painting Detected!"
         }
         
-        let referenceImage = imageAnchor.referenceImage
-        let imagePhysicalSize = referenceImage.physicalSize
+//        DispatchQueue.global().async {
         
-        // visualization with plane
-        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-        plane.firstMaterial?.diffuse.contents = UIColor.cyan
-
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.3
-        planeNode.eulerAngles.x = -Float.pi/2
-
-        planeNode.runAction(highlightPaintingAction)
-        node.addChildNode(planeNode)
-        
-        // title
-        let titleNode = createPaintingTitleNode(paintingName: String(referenceImage.name!.prefix(referenceImage.name!.count - 4)), paintingSize: imagePhysicalSize)
-        node.addChildNode(titleNode)
-        
-        // description
-        let description = "George Nick\n2011\nNick comments: In the beginning,\n I always felt I couldn't remake\n the world but I would like to try."
-        let descriptionNode = createPaintingDescriptionNode(description: description, paintingSize: imagePhysicalSize)
-        node.addChildNode(descriptionNode)
-        
-        // Author picture
-        let authorName = "George Nick"
-        let authorNode = createAuthorNode(authorName: authorName, size: imagePhysicalSize)
-        node.addChildNode(authorNode)
+            let referenceImage = imageAnchor.referenceImage
+            let imagePhysicalSize = referenceImage.physicalSize
+            
+            guard let recognizedImageName = referenceImage.name,
+                let recognizedPainting = DataBaseManager.sharedInstance.getPaintingObjectWithImageTitle(imageTitle: recognizedImageName) else {
+                    print("!Wrong image title for painting!")
+                    return
+            }
+            
+            // visualization with plane
+            let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
+            plane.firstMaterial?.diffuse.contents = UIColor.cyan
+            
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.opacity = 0.3
+            planeNode.eulerAngles.x = -Float.pi/2
+            
+            planeNode.runAction(self.highlightPaintingAction)
+            node.addChildNode(planeNode)
+            
+            // title
+            let titleNode = self.createPaintingTitleNode(paintingName: recognizedPainting.title, paintingSize: imagePhysicalSize)
+            node.addChildNode(titleNode)
+            
+            // description
+            let formattedDescription = Essentials.prettifyString(string: recognizedPainting.details, span: 8)
+            let descriptionNode = self.createPaintingDescriptionNode(description: formattedDescription, paintingSize: imagePhysicalSize)
+            node.addChildNode(descriptionNode)
+            
+            // Author picture
+            guard let author = recognizedPainting.author else {
+                print("no author")
+                return
+            }
+            
+            let authorNode = self.createAuthorNode(author: author, size: imagePhysicalSize)
+            node.addChildNode(authorNode)
+            
+            
+            // save it to Recognized
+            DataBaseManager.sharedInstance.savePaintingToRecognized(id: recognizedPainting.id)
+//        }
     }
     
     

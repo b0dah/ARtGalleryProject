@@ -14,18 +14,61 @@
 //    Painting(title: "Natura morta con Caraffe e tubo", author: "Georges Braque", year: 1934)
 
 import UIKit
+import CoreData
 
 class PaintingsCollectionViewController: UITableViewController {
     
-    let paintings: [Painting] = [
-//        Painting(id: 1, title: "Test Painting", year: 2000, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "Painting.jpg", physicalWidth: 0.1, physicalHeight: 0.1),
-//        Painting(id: 2, title: "Peaceful Sight", year: 2008, description: "There is my test description for test painting for my report video supposed to send my scientific director", author: Artist(id: 1, name: "RoyalSurname", yearsOfLife: "", country: "", portraitImageTitle: ""), genre: "", museumId: 1, imageTitle: "PeacefulSight.jpg", physicalWidth: 0.1, physicalHeight: 0.1)
-    ]
+    var paintings: [Painting] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MARK: UI
         tableView.separatorStyle = .none
+        
+        // MARK: DB Test
+//        let rp = RecognizedPainting(context: DataBaseManager.sharedInstance.persistentContainer.viewContext)
+//        rp.paintingId = 20000
+//
+//        do {
+//            try DataBaseManager.sharedInstance.saveContext()
+//            print("yaaa")
+//        } catch {
+//            print("naa")
+//        }
+//
+//        //
+//        let request = NSFetchRequest<NSFetchRequestResult> (entityName: RecognizedPaintingsKeys.entityName)
+//        do {
+//            let fetched = try DataBaseManager.sharedInstance.persistentContainer.viewContext.fetch(request) as? [RecognizedPainting]
+//            print("+")
+//            print(fetched)
+//
+//        } catch {
+//            print("-")
+//        }
+        
+        
+        // MARK: - Data Fecth
+        populateTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        populateTableView()
+        tableView.reloadData()
+    }
+    
+    func populateTableView() {
+        guard let ids = DataBaseManager.sharedInstance.getRecongnizedPaintingsIDs() else {
+            print("Couldn't fetch IDs")
+            return
+        }
+        
+        self.paintings =  DataBaseManager.sharedInstance.getPaintingsArrayWithIdsArray(ids: ids)
+        print(paintings.count)
     }
 
     // MARK: - Table view data source
