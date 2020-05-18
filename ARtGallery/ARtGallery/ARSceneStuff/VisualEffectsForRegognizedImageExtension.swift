@@ -46,7 +46,7 @@ extension ExplorationViewController {
         
         
         let coefficient = ARConstants.descriptionNodeScaleCoefficient
-        descriptionNode.scale = SCNVector3(coefficient, coefficient, 0.001)
+        descriptionNode.scale = SCNVector3(coefficient, coefficient, 0.001)  
         
         // position
         let portraitImageHeight = paintingSize.width/ARConstants.authorNodeScaleCoefficient * 1.33

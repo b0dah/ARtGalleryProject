@@ -28,12 +28,20 @@ class PaintingTableViewCell: UITableViewCell {
     }
     
     public func updateUI(painting: Painting) {
-//        backView.layer.cornerRadius = pictureView.frame.width / 4
-//        
-//        pictureView.image = UIImage(named: painting.imageTitle)
-//        titleLabel.text = painting.title + ", " + String(painting.year)
-//        
-//        authorLabel.text = "CHANGE IT"//painting.author
+        backView.layer.cornerRadius = pictureView.frame.width / 4
+        if let imageData = painting.image {
+            pictureView.image = UIImage(data: imageData)
+        } else {
+            print("No image for the cell")
+        }
+        
+        titleLabel.text = painting.title + ", " + String(painting.year)
+        
+        if let author = painting.author {
+            authorLabel.text = author.name
+        } else {
+            print("Author is nil")
+        }
         
     }
 
