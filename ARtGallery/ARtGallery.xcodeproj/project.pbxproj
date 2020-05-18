@@ -19,6 +19,7 @@
 		BC418C652471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C632471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift */; };
 		BC418C672471BAC0001D9387 /* RecognizedPaintingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C662471BAC0001D9387 /* RecognizedPaintingsKeys.swift */; };
 		BC418C692472988B001D9387 /* Essentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C682472988B001D9387 /* Essentials.swift */; };
+		BC418C6B24731673001D9387 /* PaintingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC418C6A24731673001D9387 /* PaintingDetailsViewController.swift */; };
 		BC4CB362246D01E1008BE946 /* ModelsDecodingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */; };
 		BC4CB366246D1D07008BE946 /* PaintingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB365246D1D07008BE946 /* PaintingKeys.swift */; };
 		BC4CB368246D1D2B008BE946 /* ArtistKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */; };
@@ -66,6 +67,7 @@
 		BC418C632471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecognizedPainting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC418C662471BAC0001D9387 /* RecognizedPaintingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedPaintingsKeys.swift; sourceTree = "<group>"; };
 		BC418C682472988B001D9387 /* Essentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Essentials.swift; sourceTree = "<group>"; };
+		BC418C6A24731673001D9387 /* PaintingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingDetailsViewController.swift; sourceTree = "<group>"; };
 		BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDecodingExtension.swift; sourceTree = "<group>"; };
 		BC4CB365246D1D07008BE946 /* PaintingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingKeys.swift; sourceTree = "<group>"; };
 		BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistKeys.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				BC11F779244EEF2300734F60 /* MuseumSelectionViewController.swift */,
 				BC11F738244C5D2300734F60 /* ExplorationViewController.swift */,
 				BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */,
+				BC418C6A24731673001D9387 /* PaintingDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				BC5DDAC8247156600025AD96 /* DataBaseFunctionality.swift in Sources */,
 				BC4CB370246D1DAA008BE946 /* Painting+CoreDataProperties.swift in Sources */,
 				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,
+				BC418C6B24731673001D9387 /* PaintingDetailsViewController.swift in Sources */,
 				BC5DDAC524714CB00025AD96 /* Artist+CoreDataClass.swift in Sources */,
 				BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */,
 				BC8AC5EB245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift in Sources */,

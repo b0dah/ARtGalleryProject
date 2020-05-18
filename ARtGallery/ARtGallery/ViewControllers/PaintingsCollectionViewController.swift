@@ -86,7 +86,11 @@ class PaintingsCollectionViewController: UITableViewController {
 
         return cell
     }
-
+    
+    // MARK: - Table View Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "PresentPaintingDetails", sender: self)
+    }
 
     // MARK: - Navigation
 
@@ -94,6 +98,12 @@ class PaintingsCollectionViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? PaintingDetailsViewController {
+            let indexPath = tableView.indexPathForSelectedRow!
+            
+            let painting = paintings[indexPath.row]
+            destination.painting = painting
+        }
     }
     
 
