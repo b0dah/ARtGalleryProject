@@ -16,6 +16,7 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var feedbackLabel: UILabel!
     
     var referenceImages: Set<ARReferenceImage>?
+    var lastRecognizedPainting: Painting?
     
     // Private Fields
     private let configuration = ARWorldTrackingConfiguration()
@@ -50,6 +51,29 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "PresentPaintingDetails":
+            if let destination = segue.destination as? PaintingDetailsViewController {
+                destination.painting = lastRecognizedPainting
+            } else {
+                fatalError("Couldn't prepare segue to Painting Details Screen")
+            }
+        
+        case "PresentAuthorDetails":
+            if let destination = segue.destination as? ArtistDetailsViewController,
+                let artist = self.lastRecognizedPainting?.author {
+                destination.artist = artist
+            } else {
+                fatalError("Couldn't prepare segue to Artist Details Screen")
+            }
+            
+        default:
+            print("Wrong Segue Identifier")
+        }
     }
     
 }

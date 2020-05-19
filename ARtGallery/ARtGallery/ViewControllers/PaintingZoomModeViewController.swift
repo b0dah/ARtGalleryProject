@@ -70,8 +70,9 @@ extension PaintingZoomModeViewController: UIScrollViewDelegate {
     func updateConstraintsForSize(_ size: CGSize) {
       //3
         
+        let height: CGFloat = self.view.bounds.size.height - (self.navigationController?.navigationBar.frame.size.height)!;
         
-        let yOffset = max(0, (size.height - imageView.frame.height) / 2)
+        let yOffset = max(0, (height - imageView.frame.height) / 2)
         topImageViewConstraint.constant = yOffset
         bottomImageViewConstraint.constant = yOffset
         

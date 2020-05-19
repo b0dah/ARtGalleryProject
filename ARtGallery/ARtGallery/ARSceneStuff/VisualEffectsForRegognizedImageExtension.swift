@@ -113,6 +113,40 @@ extension ExplorationViewController {
         return imageNode
     }
     
+    func createDetailsInfoNode(size: CGSize) -> SCNNode {
+        let box = SCNBox(width: 0.05, height: 0.01, length: 0.05, chamferRadius: 0.0)
+  
+        let firstMaterial = SCNMaterial()
+        firstMaterial.diffuse.contents = UIImage(named: "info")
+        let secondMaterial = SCNMaterial()
+        secondMaterial.diffuse.contents = UIColor.darkGray
+        
+        box.materials = [firstMaterial, secondMaterial]
+        
+        let boxNode = SCNNode(geometry: box)
+        boxNode.name = "DetailsInfoNode"
+        let xPosition = -ARConstants.infoNodesSpan/2
+        let zPosition = size.height/2.0 + ARConstants.scenePaddingWidth
+        boxNode.position = SCNVector3(xPosition, 0, zPosition)
+        return boxNode
+    }
+    
+    func createAuthorInfoNode(size: CGSize) -> SCNNode {
+        let box = SCNBox(width: 0.05, height: 0.01, length: 0.05, chamferRadius: 0.0)
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "painterPlaceholder")
+        box.materials = [material]
+        
+        let boxNode = SCNNode(geometry: box)
+        boxNode.name = "AuthorInfoNode"
+        
+        let xPosition = ARConstants.infoNodesSpan/2
+        let zPosition = size.height/2.0 + ARConstants.scenePaddingWidth
+        boxNode.position = SCNVector3(xPosition, 0, zPosition)
+        return boxNode
+    }
+    
     func createAnimation(paintingSize: CGSize) -> SCNNode {
         
         // painting
