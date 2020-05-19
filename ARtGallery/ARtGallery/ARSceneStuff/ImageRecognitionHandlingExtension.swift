@@ -24,14 +24,16 @@ extension ExplorationViewController {
         
         print("Painting detected!")
         DispatchQueue.main.async {
+            self.feedbackLabel.textColor = .systemYellow
             self.feedbackLabel.text = "Painting Detected!"
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.feedbackLabel.textColor = .white
             self.feedbackLabel.text = "Point Camera at the next painting"
         }
         
-//        DispatchQueue.global().async {
+        DispatchQueue.global().async {
         
             let referenceImage = imageAnchor.referenceImage
             let imagePhysicalSize = referenceImage.physicalSize
@@ -42,7 +44,7 @@ extension ExplorationViewController {
                     return
             }
         
-        self.lastRecognizedPainting = recognizedPainting
+            self.lastRecognizedPainting = recognizedPainting
             
             // visualization with plane
             let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
@@ -75,15 +77,15 @@ extension ExplorationViewController {
         
         
             // MARK: - Info Nodes :
-            let detailsInfoNode = createDetailsInfoNode(size: imagePhysicalSize)
+            let detailsInfoNode = self.createDetailsInfoNode(size: imagePhysicalSize)
             node.addChildNode(detailsInfoNode)
             
-            let authorInfoNode = createAuthorInfoNode(size: imagePhysicalSize)
+            let authorInfoNode = self.createAuthorInfoNode(size: imagePhysicalSize)
             node.addChildNode(authorInfoNode)
         
             // save it to Recognized
             DataBaseManager.sharedInstance.savePaintingToRecognized(id: recognizedPainting.id)
-//        }
+        }
     }
     
 }

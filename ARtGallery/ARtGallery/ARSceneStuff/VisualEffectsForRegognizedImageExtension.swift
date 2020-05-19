@@ -57,11 +57,10 @@ extension ExplorationViewController {
         print(maxVector)
         
         let textNodeHeight = CGFloat(maxVector.y - minVector.y) * ARConstants.descriptionNodeScaleCoefficient
-        print("TEXT NODE HEIGHT")
-        print(textNodeHeight)
+        let nameNodeHeight = ARConstants.scenePaddingWidth
         
         let xPosition = paintingSize.width/2.0 + ARConstants.scenePaddingWidth
-        let zPosition = -paintingSize.height/2.0 + portraitImageHeight + ARConstants.scenePaddingWidth + textNodeHeight
+        let zPosition = -paintingSize.height/2.0 + portraitImageHeight + nameNodeHeight + ARConstants.scenePaddingWidth + textNodeHeight
         
         
         descriptionNode.position = SCNVector3(xPosition, 0, zPosition)
@@ -103,14 +102,31 @@ extension ExplorationViewController {
         let imageGeometry = SCNPlane(width: portraitImageWidth, height: portraitImageHeight)
         imageGeometry.materials = [material]
         
-        let imageNode = SCNNode(geometry: imageGeometry)
-        imageNode.eulerAngles.x = -.pi/2.0
+        let authorNode = SCNNode(geometry: imageGeometry)
+        authorNode.eulerAngles.x = -.pi/2.0
         
         let authorNodeXPosition = size.width/2.0 + portraitImageWidth/2.0 + ARConstants.scenePaddingWidth
         let authorNodeZPosition = -size.height/2.0 + portraitImageHeight/2.0
-        imageNode.position = SCNVector3(authorNodeXPosition, 0.001, authorNodeZPosition)
+        authorNode.position = SCNVector3(authorNodeXPosition, 0.001, authorNodeZPosition)
+        
+        // name label
+        var nameNode: SCNNode {
+            let text = SCNText(string: author.name, extrusionDepth: 0.0)
+            text.font = UIFont(name: "Arial", size: 11)
+            text.firstMaterial?.diffuse.contents = UIColor.white
+            let nameNode = SCNNode(geometry: text)
             
-        return imageNode
+            let coefficient = ARConstants.descriptionNodeScaleCoefficient
+            nameNode.scale = SCNVector3(coefficient, coefficient, 0.001)
+            let xPosition = -portraitImageWidth/2
+            let yPosition = -portraitImageHeight/2 - ARConstants.scenePaddingWidth
+            nameNode.position = SCNVector3(xPosition, yPosition, 0)
+            
+            return nameNode
+        }
+        authorNode.addChildNode(nameNode)
+            
+        return authorNode
     }
     
     func createDetailsInfoNode(size: CGSize) -> SCNNode {
