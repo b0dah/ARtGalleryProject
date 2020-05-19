@@ -114,10 +114,11 @@ extension ExplorationViewController {
     }
     
     func createDetailsInfoNode(size: CGSize) -> SCNNode {
-        let box = SCNBox(width: 0.05, height: 0.01, length: 0.05, chamferRadius: 0.0)
+        let width = ARConstants.sideOfInfoNodeSquare
+        let box = SCNBox(width: width, height: 0.01, length: width, chamferRadius: 0.0)
   
         let firstMaterial = SCNMaterial()
-        firstMaterial.diffuse.contents = UIImage(named: "info")
+        firstMaterial.diffuse.contents = UIImage(named: "infoNode")
         let secondMaterial = SCNMaterial()
         secondMaterial.diffuse.contents = UIColor.darkGray
         
@@ -125,6 +126,19 @@ extension ExplorationViewController {
         
         let boxNode = SCNNode(geometry: box)
         boxNode.name = "DetailsInfoNode"
+        
+        // indicator node
+        var indicatorNode: SCNNode {
+            let indicator = SCNSphere(radius: ARConstants.indicatorSphereRadius)
+            let indicatorMaterial = SCNMaterial()
+            indicatorMaterial.diffuse.contents = UIColor.orange
+            indicator.materials = [indicatorMaterial]
+            let indicatorNode = SCNNode(geometry: indicator)
+            indicatorNode.position = SCNVector3(-0.02, 0.005, 0.02)
+            return indicatorNode
+        }
+        boxNode.addChildNode(indicatorNode)
+        
         let xPosition = -ARConstants.infoNodesSpan/2
         let zPosition = size.height/2.0 + ARConstants.scenePaddingWidth
         boxNode.position = SCNVector3(xPosition, 0, zPosition)
@@ -132,7 +146,8 @@ extension ExplorationViewController {
     }
     
     func createAuthorInfoNode(size: CGSize) -> SCNNode {
-        let box = SCNBox(width: 0.05, height: 0.01, length: 0.05, chamferRadius: 0.0)
+        let width = ARConstants.sideOfInfoNodeSquare
+        let box = SCNBox(width: width, height: 0.01, length: width, chamferRadius: 0.0)
         
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: "painterPlaceholder")
@@ -140,6 +155,18 @@ extension ExplorationViewController {
         
         let boxNode = SCNNode(geometry: box)
         boxNode.name = "AuthorInfoNode"
+        
+        // indicator node
+        var indicatorNode: SCNNode {
+            let indicator = SCNSphere(radius: ARConstants.indicatorSphereRadius)
+            let indicatorMaterial = SCNMaterial()
+            indicatorMaterial.diffuse.contents = UIColor.orange
+            indicator.materials = [indicatorMaterial]
+            let indicatorNode = SCNNode(geometry: indicator)
+            indicatorNode.position = SCNVector3(-0.02, 0.005, 0.02)
+            return indicatorNode
+        }
+        boxNode.addChildNode(indicatorNode)
         
         let xPosition = ARConstants.infoNodesSpan/2
         let zPosition = size.height/2.0 + ARConstants.scenePaddingWidth
