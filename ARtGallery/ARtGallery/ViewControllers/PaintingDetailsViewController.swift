@@ -98,4 +98,12 @@ class PaintingDetailsViewController: UIViewController {
         }
     
     }
+    
+    @IBAction func linkButtonTapped(_ sender: Any) {
+        
+        if let url = URL(string: "https://en.wikipedia.org/wiki/Painterliness") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
 }

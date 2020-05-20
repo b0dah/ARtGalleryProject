@@ -69,6 +69,7 @@ extension MuseumDetailsViewController {
         let dispatchGroup = DispatchGroup()
         
         clearLocalPaintings(context: context)
+        clearLocalArtists(context: context)
         
         jsonPaintingsArray.map {
             
@@ -123,6 +124,19 @@ extension MuseumDetailsViewController {
     func clearLocalPaintings(context: NSManagedObjectContext) {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: PaintingKeys.entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError {
+            print("error \(error) \(error.userInfo)")
+        }
+    }
+    
+    func clearLocalArtists(context: NSManagedObjectContext) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ArtistKeys.entityName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {

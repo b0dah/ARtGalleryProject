@@ -149,7 +149,7 @@ class MuseumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Constants.pathToDocuments)
+        //print(Constants.pathToDocuments)
         
         guard let museum = museum else {
             print("No museum passed!")

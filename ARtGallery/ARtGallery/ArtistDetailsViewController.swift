@@ -41,4 +41,11 @@ class ArtistDetailsViewController: UIViewController {
         
         self.linkButton.layer.cornerRadius = self.linkButton.frame.height/4
     }
+    
+    
+    @IBAction func linkButtonTapped(_ sender: Any) {
+        if let url = URL(string: "https://en.wikipedia.org/wiki/Lists_of_painters") {
+            UIApplication.shared.open(url)
+        }
+    }
 }
