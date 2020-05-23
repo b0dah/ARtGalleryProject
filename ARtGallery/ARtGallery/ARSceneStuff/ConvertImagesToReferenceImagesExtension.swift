@@ -15,12 +15,12 @@ extension MuseumDetailsViewController {
     
     func createReferenceImageSet(completion: @escaping ()->Void) {
         
-        let dispatchGroup = DispatchGroup()
-        
         guard self.paintings != nil else {
             print("paintings array is set to nil")
             return
         }
+        
+        let dispatchGroup = DispatchGroup()
         
         for painting in self.paintings! {
             
@@ -37,7 +37,7 @@ extension MuseumDetailsViewController {
                 continue
             }
             
-            // Convert It To A CIImage
+            // Convert It To A CIImage (CREATE CIIMage из Data)
             guard let ciImage = CIImage(image: image),
             // Then Convert The CIImage To A CGImage
                 let cgImage = convertCIImageToCGImage(inputImage: ciImage) else {

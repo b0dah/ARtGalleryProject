@@ -18,7 +18,7 @@
 //
 //            self.downloadResourcesButton.showLoading()
 //
-//            // ! moving to Secondary thread
+            // ! moving to Secondary thread
 //            DispatchQueue.global().async {
 //                let dispatchGroup = DispatchGroup()
 //
