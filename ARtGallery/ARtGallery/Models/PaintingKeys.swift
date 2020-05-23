@@ -21,4 +21,5 @@ public enum PaintingKeys {
     static let physicalWidth = "physicalWidth"
     static let physicalHeight = "physicalHeight"
     static let author = "author"
+    static let link = "link"
 }

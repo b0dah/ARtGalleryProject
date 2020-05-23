@@ -32,7 +32,7 @@ class ArtistDetailsViewController: UIViewController {
     func updateUI(artist: Artist) {
         
         self.nameLabel.text = artist.name
-        self.descriptionLabel.text = artist.yearsOfLife
+        self.descriptionLabel.text = artist.yearsOfLife + "\n" + artist.biography
         self.countryLabel.text = artist.country
         
         if let artistImageData = artist.portraitImage {
@@ -44,7 +44,8 @@ class ArtistDetailsViewController: UIViewController {
     
     
     @IBAction func linkButtonTapped(_ sender: Any) {
-        if let url = URL(string: "https://en.wikipedia.org/wiki/Lists_of_painters") {
+        guard let artist = self.artist else {return}
+        if let url = URL(string: artist.link) {
             UIApplication.shared.open(url)
         }
     }

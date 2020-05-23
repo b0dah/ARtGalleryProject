@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="biography" attributeType="String"/>
         <attribute name="country" attributeType="String"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="link" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="portraitImage" optional="YES" attributeType="Binary"/>
         <attribute name="portraitImageTitle" attributeType="String"/>
@@ -14,6 +16,7 @@
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="imageName" attributeType="String"/>
+        <attribute name="link" attributeType="String"/>
         <attribute name="museumId" attributeType="Integer 32" usesScalarValueType="YES"/>
         <attribute name="physicalHeight" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="physicalWidth" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -30,8 +33,8 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Artist" positionX="-13143.99609375" positionY="-8247.29296875" width="128" height="133"/>
-        <element name="Painting" positionX="-13385.34375" positionY="-8238.4453125" width="128" height="208"/>
-        <element name="RecognizedPainting" positionX="-13266" positionY="-8154" width="128" height="58"/>
+        <element name="Artist" positionX="-13143.99609375" positionY="-8247.29296875" width="128" height="163"/>
+        <element name="Painting" positionX="-13385.34375" positionY="-8238.4453125" width="128" height="223"/>
+        <element name="RecognizedPainting" positionX="-13136.51171875" positionY="-8090.15234375" width="128" height="58"/>
     </elements>
 </model>

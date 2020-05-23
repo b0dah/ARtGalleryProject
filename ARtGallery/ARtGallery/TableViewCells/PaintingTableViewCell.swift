@@ -28,9 +28,11 @@ class PaintingTableViewCell: UITableViewCell {
     }
     
     public func updateUI(painting: Painting) {
+       
         backView.layer.cornerRadius = pictureView.frame.width / 4
         if let imageData = painting.image {
             pictureView.image = UIImage(data: imageData)
+             pictureView.applyshadowWithCorner(containerView: backView, cornerRadious: 4)
         } else {
             print("No image for the cell")
         }

@@ -23,17 +23,10 @@ class MuseumSelectionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // UI
-        self.tableView.separatorStyle = .none
-        navigationItem.leftBarButtonItem = editButtonItem
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Museums"
-//        self.tableView.rowHeight = UITableView.automaticDimension
+        setupNavigationBar()
         
         // fetch data from API
         fetchMuseumList(url: Constants.museumsListAPIEndpoint) {
-            
         }
     }
     
@@ -97,4 +90,16 @@ class MuseumSelectionTableViewController: UITableViewController {
     }
     
     
+}
+
+extension MuseumSelectionTableViewController {
+    
+    func setupNavigationBar() {
+        // UI
+        self.tableView.separatorStyle = .none
+        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        navigationController?.navigationBar.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 106/255, alpha: 1.0)
+        navigationItem.title = "Museums"
+    }
 }

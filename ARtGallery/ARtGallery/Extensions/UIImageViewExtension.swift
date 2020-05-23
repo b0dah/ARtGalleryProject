@@ -11,10 +11,27 @@ import UIKit
 extension UIImageView {
     
     func makeRounded() {
-        // pictureView.layer.borderWidth = 1
         self.layer.masksToBounds = false
         self.layer.cornerRadius = self.frame.width / 2
         self.clipsToBounds = true
+        
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOpacity = 1
+//        self.layer.shadowOffset = CGSize.zero
+//        self.layer.shadowRadius = 10
+//        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 10).cgPath
+    }
+    
+    func applyshadowWithCorner(containerView : UIView, cornerRadious : CGFloat){
+        containerView.clipsToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.4
+        containerView.layer.shadowOffset = CGSize.zero
+        containerView.layer.shadowRadius = 6
+        containerView.layer.cornerRadius = cornerRadious
+        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadious).cgPath
+        self.clipsToBounds = true
+//        self.layer.cornerRadius = cornerRadious
     }
     
     func downloadImage(from url: String) {

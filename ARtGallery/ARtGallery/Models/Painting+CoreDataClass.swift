@@ -2,7 +2,7 @@
 //  Painting+CoreDataClass.swift
 //  ARtGallery
 //
-//  Created by Иван Романов on 14.05.2020.
+//  Created by Иван Романов on 23.05.2020.
 //  Copyright © 2020 Иван Романов. All rights reserved.
 //
 //
@@ -12,5 +12,5 @@ import CoreData
 
 @objc(Painting)
 public class Painting: NSManagedObject {
-    
+
 }

@@ -23,7 +23,9 @@ extension MuseumDetailsViewController {
             let name = dictionary[ArtistKeys.name] as? String,
             let country = dictionary[ArtistKeys.country] as? String,
             let portraitImageTtitle = dictionary[ArtistKeys.portraitImageTitle] as? String,
-            let yearsOfLife = dictionary[ArtistKeys.yearsOfLife] as? String
+            let yearsOfLife = dictionary[ArtistKeys.yearsOfLife] as? String,
+            let link = dictionary[ArtistKeys.link] as? String,
+            let biography = dictionary[ArtistKeys.biography] as? String
         else {
             print("No such properties in Artist Dict")
             return nil
@@ -34,6 +36,8 @@ extension MuseumDetailsViewController {
         artist.yearsOfLife = yearsOfLife
         artist.country = country
         artist.portraitImageTitle = portraitImageTtitle
+        artist.link = link
+        artist.biography = biography
         
         return artist
     }
@@ -62,6 +66,7 @@ extension MuseumDetailsViewController {
             let year = dictionary[PaintingKeys.year] as? Int16,
             let physicalWidth = dictionary[PaintingKeys.physicalWidth] as? Double,
             let physicalHeight = dictionary[PaintingKeys.physicalHeight] as? Double,
+            let link = dictionary[PaintingKeys.link] as? String,
             let authorDictionary = dictionary[PaintingKeys.author] as? [String: AnyObject]
         else {
             print("No such properties in Painting Dict")
@@ -78,6 +83,7 @@ extension MuseumDetailsViewController {
         painting.year = year
         painting.physicalWidth = physicalWidth
         painting.physicalHeight = physicalHeight
+        painting.link = link
         
         if let author = createArtistEntity(context: context, dictionary: authorDictionary) {
             painting.author = author

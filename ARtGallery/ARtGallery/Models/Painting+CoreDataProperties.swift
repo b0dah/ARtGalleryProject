@@ -2,7 +2,7 @@
 //  Painting+CoreDataProperties.swift
 //  ARtGallery
 //
-//  Created by Иван Романов on 14.05.2020.
+//  Created by Иван Романов on 23.05.2020.
 //  Copyright © 2020 Иван Романов. All rights reserved.
 //
 //
@@ -25,8 +25,9 @@ extension Painting {
     @NSManaged public var museumId: Int32
     @NSManaged public var physicalHeight: Double
     @NSManaged public var physicalWidth: Double
-    @NSManaged public var title: String
+    @NSManaged public var link: String
     @NSManaged public var year: Int16
+    @NSManaged public var title: String
     @NSManaged public var author: Artist?
 
 }

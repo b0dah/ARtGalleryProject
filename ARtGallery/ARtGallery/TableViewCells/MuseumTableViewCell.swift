@@ -32,6 +32,7 @@ class MuseumTableViewCell: UITableViewCell {
         self.pictureView.downloadImage(from: Constants.museumsLogosPath + museum.logoImageTitle)
         
         pictureView.makeRounded()
+        pictureView.applyshadowWithCorner(containerView: self.backView, cornerRadious: 3)
         backView.layer.cornerRadius = pictureView.frame.width/8
         
         nameLabel.text = museum.name

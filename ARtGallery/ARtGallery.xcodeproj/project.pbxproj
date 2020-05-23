@@ -25,14 +25,10 @@
 		BC4CB362246D01E1008BE946 /* ModelsDecodingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */; };
 		BC4CB366246D1D07008BE946 /* PaintingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB365246D1D07008BE946 /* PaintingKeys.swift */; };
 		BC4CB368246D1D2B008BE946 /* ArtistKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */; };
-		BC4CB36F246D1DAA008BE946 /* Painting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */; };
-		BC4CB370246D1DAA008BE946 /* Painting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */; };
 		BC4CB37A246D32B7008BE946 /* FetchImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB379246D32B7008BE946 /* FetchImageData.swift */; };
 		BC4CB37C246D40E8008BE946 /* DataBaseFunctionalityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4CB37B246D40E8008BE946 /* DataBaseFunctionalityExtension.swift */; };
 		BC59EC31246DBD61003785B2 /* ARResourcesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EC30246DBD61003785B2 /* ARResourcesButton.swift */; };
 		BC59EC33246EEC36003785B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC59EC32246EEC36003785B2 /* Assets.xcassets */; };
-		BC5DDAC524714CB00025AD96 /* Artist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5DDAC324714CB00025AD96 /* Artist+CoreDataClass.swift */; };
-		BC5DDAC624714CB00025AD96 /* Artist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5DDAC424714CB00025AD96 /* Artist+CoreDataProperties.swift */; };
 		BC5DDAC8247156600025AD96 /* DataBaseFunctionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5DDAC7247156600025AD96 /* DataBaseFunctionality.swift */; };
 		BC6538172451E2AC008B0063 /* ARSessionStateHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */; };
 		BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */; };
@@ -48,6 +44,10 @@
 		BCD19784244F227F00530CE3 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19783244F227F00530CE3 /* Painting.swift */; };
 		BCD19786244F244F00530CE3 /* PaintingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */; };
 		BCD19788244F7EDC00530CE3 /* PaintingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */; };
+		BCDD55D12479888D005D611E /* Artist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD55CD2479888D005D611E /* Artist+CoreDataClass.swift */; };
+		BCDD55D22479888D005D611E /* Artist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD55CE2479888D005D611E /* Artist+CoreDataProperties.swift */; };
+		BCDD55D32479888D005D611E /* Painting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD55CF2479888D005D611E /* Painting+CoreDataClass.swift */; };
+		BCDD55D42479888D005D611E /* Painting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD55D02479888D005D611E /* Painting+CoreDataProperties.swift */; };
 		BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */; };
 		BCFEAC1D245B2C4400FC8FC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */; };
 		BCFEAC1F245C2DB700FC8FC7 /* MuseumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */; };
@@ -75,14 +75,10 @@
 		BC4CB361246D01E1008BE946 /* ModelsDecodingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDecodingExtension.swift; sourceTree = "<group>"; };
 		BC4CB365246D1D07008BE946 /* PaintingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingKeys.swift; sourceTree = "<group>"; };
 		BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistKeys.swift; sourceTree = "<group>"; };
-		BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Painting+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Painting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC4CB379246D32B7008BE946 /* FetchImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageData.swift; sourceTree = "<group>"; };
 		BC4CB37B246D40E8008BE946 /* DataBaseFunctionalityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseFunctionalityExtension.swift; sourceTree = "<group>"; };
 		BC59EC30246DBD61003785B2 /* ARResourcesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARResourcesButton.swift; sourceTree = "<group>"; };
 		BC59EC32246EEC36003785B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC5DDAC324714CB00025AD96 /* Artist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BC5DDAC424714CB00025AD96 /* Artist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC5DDAC7247156600025AD96 /* DataBaseFunctionality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseFunctionality.swift; sourceTree = "<group>"; };
 		BC6538162451E2AC008B0063 /* ARSessionStateHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionStateHandlerExtension.swift; sourceTree = "<group>"; };
 		BC6538182451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionHandlingExtension.swift; sourceTree = "<group>"; };
@@ -98,6 +94,10 @@
 		BCD19783244F227F00530CE3 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		BCD19785244F244F00530CE3 /* PaintingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingsCollectionViewController.swift; sourceTree = "<group>"; };
 		BCD19787244F7EDC00530CE3 /* PaintingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingTableViewCell.swift; sourceTree = "<group>"; };
+		BCDD55CD2479888D005D611E /* Artist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Artist+CoreDataClass.swift"; path = "ARtGallery/Models/Artist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BCDD55CE2479888D005D611E /* Artist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Artist+CoreDataProperties.swift"; path = "ARtGallery/Models/Artist+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BCDD55CF2479888D005D611E /* Painting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Painting+CoreDataClass.swift"; path = "ARtGallery/Models/Painting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BCDD55D02479888D005D611E /* Painting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Painting+CoreDataProperties.swift"; path = "ARtGallery/Models/Painting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BCFEAC1A245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMuseumListExtension.swift; sourceTree = "<group>"; };
 		BCFEAC1C245B2C4400FC8FC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BCFEAC1E245C2DB700FC8FC7 /* MuseumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumDetailsViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +118,10 @@
 		BC11F718244B505500734F60 = {
 			isa = PBXGroup;
 			children = (
+				BCDD55CD2479888D005D611E /* Artist+CoreDataClass.swift */,
+				BCDD55CE2479888D005D611E /* Artist+CoreDataProperties.swift */,
+				BCDD55CF2479888D005D611E /* Painting+CoreDataClass.swift */,
+				BCDD55D02479888D005D611E /* Painting+CoreDataProperties.swift */,
 				BC11F723244B505600734F60 /* ARtGallery */,
 				BC11F722244B505600734F60 /* Products */,
 			);
@@ -173,11 +177,7 @@
 		BC11F774244EEBA600734F60 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC5DDAC324714CB00025AD96 /* Artist+CoreDataClass.swift */,
 				BC418C662471BAC0001D9387 /* RecognizedPaintingsKeys.swift */,
-				BC5DDAC424714CB00025AD96 /* Artist+CoreDataProperties.swift */,
-				BC4CB36D246D1DAA008BE946 /* Painting+CoreDataClass.swift */,
-				BC4CB36E246D1DAA008BE946 /* Painting+CoreDataProperties.swift */,
 				BC418C622471B347001D9387 /* RecognizedPainting+CoreDataClass.swift */,
 				BC418C632471B347001D9387 /* RecognizedPainting+CoreDataProperties.swift */,
 				BC4CB367246D1D2B008BE946 /* ArtistKeys.swift */,
@@ -339,7 +339,7 @@
 				BC170672247323A60043BA6D /* ArtistDetailsViewController.swift in Sources */,
 				BC65381F245321B3008B0063 /* ARConstants.swift in Sources */,
 				BCFEAC1B245B2B8F00FC8FC7 /* FetchMuseumListExtension.swift in Sources */,
-				BC4CB36F246D1DAA008BE946 /* Painting+CoreDataClass.swift in Sources */,
+				BCDD55D32479888D005D611E /* Painting+CoreDataClass.swift in Sources */,
 				BC11F77B244EEF2300734F60 /* MuseumSelectionViewController.swift in Sources */,
 				BC8AC5E7245DC7570039CB67 /* URLExtension.swift in Sources */,
 				BC4CB37C246D40E8008BE946 /* DataBaseFunctionalityExtension.swift in Sources */,
@@ -347,10 +347,9 @@
 				BC11F725244B505600734F60 /* AppDelegate.swift in Sources */,
 				BC418C642471B347001D9387 /* RecognizedPainting+CoreDataClass.swift in Sources */,
 				BC5DDAC8247156600025AD96 /* DataBaseFunctionality.swift in Sources */,
-				BC4CB370246D1DAA008BE946 /* Painting+CoreDataProperties.swift in Sources */,
 				BCD19782244EF52E00530CE3 /* MuseumTableViewCell.swift in Sources */,
+				BCDD55D22479888D005D611E /* Artist+CoreDataProperties.swift in Sources */,
 				BC418C6B24731673001D9387 /* PaintingDetailsViewController.swift in Sources */,
-				BC5DDAC524714CB00025AD96 /* Artist+CoreDataClass.swift in Sources */,
 				BC65381C2451F672008B0063 /* VisualEffectsForRegognizedImageExtension.swift in Sources */,
 				BC8AC5EB245DE2FD0039CB67 /* ConvertImagesToReferenceImagesExtension.swift in Sources */,
 				BC4CB366246D1D07008BE946 /* PaintingKeys.swift in Sources */,
@@ -360,7 +359,6 @@
 				BCFF49A42462E1AB0081D23B /* LoadingButton.swift in Sources */,
 				BC418C692472988B001D9387 /* Essentials.swift in Sources */,
 				BC418C672471BAC0001D9387 /* RecognizedPaintingsKeys.swift in Sources */,
-				BC5DDAC624714CB00025AD96 /* Artist+CoreDataProperties.swift in Sources */,
 				BC6538192451F5D6008B0063 /* ImageRecognitionHandlingExtension.swift in Sources */,
 				BC4CB368246D1D2B008BE946 /* ArtistKeys.swift in Sources */,
 				BC4CB37A246D32B7008BE946 /* FetchImageData.swift in Sources */,
@@ -377,6 +375,8 @@
 				BC11F727244B505600734F60 /* SceneDelegate.swift in Sources */,
 				BC4CB362246D01E1008BE946 /* ModelsDecodingExtension.swift in Sources */,
 				BC6538172451E2AC008B0063 /* ARSessionStateHandlerExtension.swift in Sources */,
+				BCDD55D12479888D005D611E /* Artist+CoreDataClass.swift in Sources */,
+				BCDD55D42479888D005D611E /* Painting+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

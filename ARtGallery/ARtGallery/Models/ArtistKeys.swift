@@ -15,4 +15,7 @@ public enum ArtistKeys {
     static let country = "country"
     static let portraitImageTitle = "portraitImageTitle"
     static let yearsOfLife = "yearsOfLife"
+    static let link = "link"
+    static let biography = "biography"
+
 }

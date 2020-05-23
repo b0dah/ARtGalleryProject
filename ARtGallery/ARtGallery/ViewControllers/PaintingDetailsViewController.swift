@@ -100,8 +100,8 @@ class PaintingDetailsViewController: UIViewController {
     }
     
     @IBAction func linkButtonTapped(_ sender: Any) {
-        
-        if let url = URL(string: "https://en.wikipedia.org/wiki/Painterliness") {
+        guard let painting = self.painting else {return}
+        if let url = URL(string: painting.link) {
             UIApplication.shared.open(url)
         }
     }

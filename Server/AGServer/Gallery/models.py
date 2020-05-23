@@ -20,6 +20,8 @@ class Artist(models.Model):
 	yearsOfLife = models.CharField(max_length = 20)
 	country = models.CharField(max_length = 100)
 	portraitImageTitle = models.CharField(max_length = 300)
+	link = models.CharField(max_length = 500)
+	biography = models.CharField(max_length = 5000)
 	
 	def __str__(self):
 		return str(self.id) + '  ' + self.name
@@ -40,6 +42,7 @@ class Painting(models.Model):
 	imageTitle = models.CharField(max_length = 300)
 	physicalWidth = models.FloatField()
 	physicalHeight = models.FloatField()
+	link = models.CharField(max_length = 500)
 	
 	#Foreign Keys:
 	author = models.ForeignKey(Artist, on_delete = models.SET_NULL, null=True)
