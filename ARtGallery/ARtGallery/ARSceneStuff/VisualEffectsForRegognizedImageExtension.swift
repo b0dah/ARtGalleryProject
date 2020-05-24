@@ -18,20 +18,29 @@ extension ExplorationViewController {
     // MARK:- ARSCNViewDelegate
     
     var highlightPaintingAction: SCNAction {
-        return .sequence([ .fadeIn(duration: 1.0), .wait(duration: 0.5), .fadeOut(duration: 1.0), .removeFromParentNode()])
+        return .sequence([ .fadeIn(duration: 0.5), .wait(duration: 0.5), .fadeOut(duration: 0.5), .removeFromParentNode()])
     }
        
        
    //MARK: - Text Creation Functionality
     func createPaintingTitleNode(paintingName: String, paintingSize: CGSize) -> SCNNode {
+        
+//        let attributes : [NSAttributedString.Key: Any] = [
+//            NSAttributedString.Key.strokeWidth: -2.0,
+//            NSAttributedString.Key.strokeColor: UIColor.black
+//        ]
+//        let string = NSAttributedString(string: "sdncj", attributes: attributes)
         let title = SCNText(string: paintingName, extrusionDepth: 0.5)
+        
+       
+        
         let titleNode = SCNNode(geometry: title)
         
         let xPosition = -paintingSize.width/2.0
         let zPosition = -paintingSize.height/2.0 - ARConstants.scenePaddingWidth
         
         titleNode.position = SCNVector3(xPosition, 0, zPosition)
-        titleNode.scale = SCNVector3(0.003, 0.003, 0.002)
+        titleNode.scale = SCNVector3(0.004, 0.004, 0.005)
 //    titleNode.pivot = SCNMatrix4MakeTranslation(0, 0, 0)
        titleNode.eulerAngles.x = -Float.pi/2
        return titleNode
@@ -40,7 +49,7 @@ extension ExplorationViewController {
     func createPaintingDescriptionNode(description: String, paintingSize: CGSize) -> SCNNode {
         
         let descriptionTextGeometry = SCNText(string: description, extrusionDepth: 0.0)
-        descriptionTextGeometry.font = UIFont(name: "Helvetica", size: 12)
+        descriptionTextGeometry.font = UIFont(name: "Helvetica", size: 14)
         descriptionTextGeometry.firstMaterial?.diffuse.contents = UIColor.white
         let descriptionNode = SCNNode(geometry: descriptionTextGeometry)
         
@@ -50,24 +59,35 @@ extension ExplorationViewController {
         
         // position
         let portraitImageHeight = paintingSize.width/ARConstants.authorNodeScaleCoefficient * 1.33
-        
-        let (minVector, maxVector) = descriptionNode.boundingBox
-        
-        print(minVector)
-        print(maxVector)
+        let (minVector, maxVector) = descriptionNode.boundingBox //  print(minVector); print(maxVector)
         
         let textNodeHeight = CGFloat(maxVector.y - minVector.y) * ARConstants.descriptionNodeScaleCoefficient
-        let nameNodeHeight = ARConstants.scenePaddingWidth
+        let nameNodeHeight = 2*ARConstants.scenePaddingWidth
         
         let xPosition = paintingSize.width/2.0 + ARConstants.scenePaddingWidth
         let zPosition = -paintingSize.height/2.0 + portraitImageHeight + nameNodeHeight + ARConstants.scenePaddingWidth + textNodeHeight
         
-        
         descriptionNode.position = SCNVector3(xPosition, 0, zPosition)
+        
+        // sustrate plane
+        let textNodeBounds = SCNVector3Make(maxVector.x - minVector.x, maxVector.y - minVector.y, maxVector.z - minVector.z)
+        let substratePlane = SCNPlane(width: CGFloat(textNodeBounds.x + 10), height: CGFloat(textNodeBounds.y + 10))
+        substratePlane.cornerRadius = 10
+        let substratePlaneMaterial = SCNMaterial()
+        substratePlaneMaterial.diffuse.contents = UIColor.black
+        substratePlane.materials = [substratePlaneMaterial]
+        
+        let substratePlaneNode = SCNNode(geometry: substratePlane)
+        substratePlaneNode.position = SCNVector3(CGFloat( minVector.x) + CGFloat(textNodeBounds.x) / 2 ,
+                                        CGFloat( minVector.y) + CGFloat(textNodeBounds.y) / 2,CGFloat(minVector.z - 0.01))
+        substratePlaneNode.opacity = 0.8
+        descriptionNode.addChildNode(substratePlaneNode)
         
         // material
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.systemYellow
+//        let secondMaterial = SCNMaterial()
+//        secondMaterial.diffuse.contents = UIColor.black
         descriptionTextGeometry.materials = [material]
         
         // form
@@ -111,15 +131,15 @@ extension ExplorationViewController {
         
         // name label
         var nameNode: SCNNode {
-            let text = SCNText(string: author.name, extrusionDepth: 0.0)
-            text.font = UIFont(name: "Arial", size: 11)
+            let text = SCNText(string: author.name, extrusionDepth: 0.5)
+            text.font = UIFont(name: "Arial", size: 20)
             text.firstMaterial?.diffuse.contents = UIColor.white
             let nameNode = SCNNode(geometry: text)
             
             let coefficient = ARConstants.descriptionNodeScaleCoefficient
-            nameNode.scale = SCNVector3(coefficient, coefficient, 0.001)
+            nameNode.scale = SCNVector3(coefficient, coefficient, 0.005)
             let xPosition = -portraitImageWidth/2
-            let yPosition = -portraitImageHeight/2 - ARConstants.scenePaddingWidth
+            let yPosition = -portraitImageHeight/2 - 2*ARConstants.scenePaddingWidth
             nameNode.position = SCNVector3(xPosition, yPosition, 0)
             
             return nameNode

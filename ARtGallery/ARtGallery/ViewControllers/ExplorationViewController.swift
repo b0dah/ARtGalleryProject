@@ -30,6 +30,8 @@ class ExplorationViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
 //        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
+        self.sceneView.autoenablesDefaultLighting = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

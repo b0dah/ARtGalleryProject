@@ -9,7 +9,7 @@
 import UIKit
 
 enum ARConstants {
-    static let scenePaddingWidth = CGFloat(0.02)
+    static let scenePaddingWidth = CGFloat(0.01)
     static let infoNodesSpan = CGFloat(0.1)
     static let indicatorSphereRadius = CGFloat(0.006)
     static let sideOfInfoNodeSquare = CGFloat(0.04)

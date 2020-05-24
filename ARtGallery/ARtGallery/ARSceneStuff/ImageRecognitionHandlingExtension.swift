@@ -46,9 +46,9 @@ extension ExplorationViewController {
         
             self.lastRecognizedPainting = recognizedPainting
             
-            // visualization with plane
+        // visualization with plane
             let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-            plane.firstMaterial?.diffuse.contents = UIColor.cyan
+            plane.firstMaterial?.diffuse.contents = UIColor.white
             
             let planeNode = SCNNode(geometry: plane)
             planeNode.opacity = 0.3
