@@ -25,12 +25,12 @@ extension ExplorationViewController {
         print("Painting detected!")
         DispatchQueue.main.async {
             self.feedbackLabel.textColor = .systemYellow
-            self.feedbackLabel.text = "Painting Detected!"
+            self.feedbackLabel.text = "Полотно распознано!"
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.feedbackLabel.textColor = .white
-            self.feedbackLabel.text = "Point Camera at the next painting"
+            self.feedbackLabel.text = "Наведите камеру на любую картину"
         }
         
         DispatchQueue.global().async {
@@ -62,7 +62,7 @@ extension ExplorationViewController {
             node.addChildNode(titleNode)
             
             // description
-            let formattedDescription = Essentials.prettifyString(string: recognizedPainting.details, span: 8)
+            let formattedDescription = Essentials.prettifyString(string: recognizedPainting.details, span: 7)
             let descriptionNode = self.createPaintingDescriptionNode(description: formattedDescription, paintingSize: imagePhysicalSize)
             node.addChildNode(descriptionNode)
             
