@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="289" y="2484"/>
         </scene>
-        <!--Personal Collection-->
+        <!--Личная коллекция-->
         <scene sceneID="9cT-bB-IZ2">
             <objects>
                 <tableViewController id="d8E-71-o82" customClass="PaintingsCollectionViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                             <outlet property="delegate" destination="d8E-71-o82" id="vzi-cP-y6A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Personal Collection" largeTitleDisplayMode="always" id="5G9-LG-7c2"/>
+                    <navigationItem key="navigationItem" title="Личная коллекция" largeTitleDisplayMode="always" id="5G9-LG-7c2"/>
                     <connections>
                         <segue destination="0Wn-De-yKZ" kind="show" identifier="PresentPaintingDetails" id="yL7-wY-sMi"/>
                     </connections>
@@ -152,7 +152,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Museum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlh-qg-cgz">
                                                             <rect key="frame" x="0.0" y="8" width="243" height="41.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.097135508065508622" green="0.35377760948904108" blue="0.26090186376526581" alpha="0.78919627566027395" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-RT-Qlw">
@@ -179,7 +179,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="A9g-0B-b9A" secondAttribute="trailing" id="sFO-39-evc"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="0.26300299657534248" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="0.36499357876712329" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="backView" destination="vB1-Ka-FOa" id="OPU-uS-VVJ"/>
                                     <outlet property="cityLabel" destination="mNa-RT-Qlw" id="oJ9-fi-IdA"/>
@@ -212,7 +212,7 @@
             </objects>
             <point key="canvasLocation" x="1052" y="1876"/>
         </scene>
-        <!--Museum-->
+        <!--Музей-->
         <scene sceneID="DwM-0J-51i">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="SJv-ur-53U" customClass="MuseumDetailsViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -358,7 +358,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D4e-mW-K2S"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Museum" largeTitleDisplayMode="never" id="oMF-gd-aF0"/>
+                    <navigationItem key="navigationItem" title="Музей" largeTitleDisplayMode="never" id="oMF-gd-aF0"/>
                     <connections>
                         <outlet property="appearenceImage" destination="Oil-fN-8Ok" id="t0b-W3-owN"/>
                         <outlet property="descriptionLabel" destination="dld-6n-0T4" id="QIZ-6c-1j5"/>
@@ -454,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="1052" y="2633"/>
         </scene>
-        <!--Painting-->
+        <!--Картина-->
         <scene sceneID="YTY-KI-TZX">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="0Wn-De-yKZ" customClass="PaintingDetailsViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -546,13 +546,13 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-lU-eEn" customClass="ARResourcesButton" customModule="ARtGallery" customModuleProvider="target">
                                                         <rect key="frame" x="80" y="10" width="215" height="50"/>
-                                                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.4217947345890411" alpha="0.33623180650684925" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.41508164469999997" alpha="0.57245291095890416" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="wQZ-lN-4pE"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                                        <state key="normal" title="More on Wikipedia " image="arrow.left.circle" catalog="system">
+                                                        <state key="normal" title="More on Web " image="arrow.left.circle" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -594,7 +594,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KhN-Et-n2W"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Painting" largeTitleDisplayMode="never" id="FP7-16-cjZ"/>
+                    <navigationItem key="navigationItem" title="Картина" largeTitleDisplayMode="never" id="FP7-16-cjZ"/>
                     <connections>
                         <outlet property="authorImageView" destination="7be-Da-ZaG" id="Ur9-Bq-rpt"/>
                         <outlet property="authorLabel" destination="fgO-0Z-FhN" id="NPY-r2-iOH"/>
@@ -756,12 +756,12 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aii-7W-dMD">
                                                         <rect key="frame" x="80" y="10" width="215" height="40"/>
-                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="0.36197024828767121" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.41508164469999997" alpha="0.61590325344657537" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="VrN-Tm-qSm"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="More on Wikipedia " image="arrow.left.circle" catalog="system">
+                                                        <state key="normal" title="More on Web " image="arrow.left.circle" catalog="system">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
