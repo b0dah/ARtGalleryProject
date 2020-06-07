@@ -9,11 +9,11 @@
 import UIKit
 
 enum ARResourcesButtonState: String {
-    case checking = "Минутку!"
-    case preparing = "Готовим все необходимое"
-    case readyToDownload = "Загрузить ресурсы для AR "
-    case downloading = "Загрузка"
-    case readyToGoToAR = "Перейти к AR-сцене "
+    case checking = "Just a sec ..."
+    case preparing = "We are preparing all u need"
+    case readyToDownload = "Download AR Resources "
+    case downloading = "Downloading"
+    case readyToGoToAR = "Go to AR Experience "
 }
 
 class ARResourcesButton: LoadingButton {

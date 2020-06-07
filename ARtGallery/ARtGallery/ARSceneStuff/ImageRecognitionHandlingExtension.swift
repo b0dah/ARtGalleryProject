@@ -25,12 +25,12 @@ extension ExplorationViewController {
         print("Painting detected!")
         DispatchQueue.main.async {
             self.feedbackLabel.textColor = .systemYellow
-            self.feedbackLabel.text = "Полотно распознано!"
+            self.feedbackLabel.text = "Painting Detected!"
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.feedbackLabel.textColor = .white
-            self.feedbackLabel.text = "Наведите камеру на любую картину"
+            self.feedbackLabel.text = "Point Camera at the next painting"
         }
         
         DispatchQueue.global().async {

@@ -39,20 +39,20 @@ extension ExplorationViewController: ARSessionDelegate {
             
             switch reasonForTrackingToBeLimited {
             case .excessiveMotion:
-                feedbackLabel.text = "Вы двигаетесь слишком интенсивно. Помедленне, пожалуйста!"
+                feedbackLabel.text = "You move to fast. Slow down!"
             case .initializing, .relocalizing:
-                feedbackLabel.text = "AR-сцена инициализируется. Двигайте устройство не спеша."
+                feedbackLabel.text = "AR Scene is warming up! Move around slowly, some extra time needed."
             case .insufficientFeatures:
-                feedbackLabel.text = "Недостаток света"
+                feedbackLabel.text = "Move ARound a bit more or turn on the light!"
             @unknown default:
                 feedbackLabel.text = "Tracking is limited due to the unknown circumstances"
             }
         case .normal:
             feedbackLabel.isHidden = false
-            feedbackLabel.text = "Наведите камеру устройства на любую картину"
+            feedbackLabel.text = "Point camera at any painting!"
         case .notAvailable:
             feedbackLabel.isHidden = false
-            feedbackLabel.text = "Трекинг камеры недлоступен"
+            feedbackLabel.text = "Camera tracking is not available for now"
         }
     }
 }

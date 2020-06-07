@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="289" y="2484"/>
         </scene>
-        <!--Личная коллекция-->
+        <!--Personal Collection-->
         <scene sceneID="9cT-bB-IZ2">
             <objects>
                 <tableViewController id="d8E-71-o82" customClass="PaintingsCollectionViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                             <outlet property="delegate" destination="d8E-71-o82" id="vzi-cP-y6A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Личная коллекция" largeTitleDisplayMode="always" id="5G9-LG-7c2"/>
+                    <navigationItem key="navigationItem" title="Personal Collection" largeTitleDisplayMode="always" id="5G9-LG-7c2"/>
                     <connections>
                         <segue destination="0Wn-De-yKZ" kind="show" identifier="PresentPaintingDetails" id="yL7-wY-sMi"/>
                     </connections>
@@ -212,7 +212,7 @@
             </objects>
             <point key="canvasLocation" x="1052" y="1876"/>
         </scene>
-        <!--Музей-->
+        <!--Museum-->
         <scene sceneID="DwM-0J-51i">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="SJv-ur-53U" customClass="MuseumDetailsViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -358,7 +358,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D4e-mW-K2S"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Музей" largeTitleDisplayMode="never" id="oMF-gd-aF0"/>
+                    <navigationItem key="navigationItem" title="Museum" largeTitleDisplayMode="never" id="oMF-gd-aF0"/>
                     <connections>
                         <outlet property="appearenceImage" destination="Oil-fN-8Ok" id="t0b-W3-owN"/>
                         <outlet property="descriptionLabel" destination="dld-6n-0T4" id="QIZ-6c-1j5"/>
@@ -454,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="1052" y="2633"/>
         </scene>
-        <!--Картина-->
+        <!--Painting-->
         <scene sceneID="YTY-KI-TZX">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="0Wn-De-yKZ" customClass="PaintingDetailsViewController" customModule="ARtGallery" customModuleProvider="target" sceneMemberID="viewController">
@@ -594,7 +594,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KhN-Et-n2W"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Картина" largeTitleDisplayMode="never" id="FP7-16-cjZ"/>
+                    <navigationItem key="navigationItem" title="Painting" largeTitleDisplayMode="never" id="FP7-16-cjZ"/>
                     <connections>
                         <outlet property="authorImageView" destination="7be-Da-ZaG" id="Ur9-Bq-rpt"/>
                         <outlet property="authorLabel" destination="fgO-0Z-FhN" id="NPY-r2-iOH"/>

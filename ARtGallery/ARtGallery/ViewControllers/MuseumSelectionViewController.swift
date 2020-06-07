@@ -100,6 +100,6 @@ extension MuseumSelectionTableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         //navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 //        navigationController?.navigationBar.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 106/255, alpha: 1.0)
-        navigationItem.title = "Музеи"
+        navigationItem.title = "Museums"
     }
 }
