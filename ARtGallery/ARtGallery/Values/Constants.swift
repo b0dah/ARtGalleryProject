@@ -9,7 +9,8 @@
 import UIKit
 
 enum Constants {
-    static let serverURL = "http://IvansMacBookPro.local:8000/"
+//    static let serverURL = "http://IvansMacBookPro.local:8000/"
+    static let serverURL = "http://52.28.107.16:8000/"
     
     //API Endpoints URLs
     static let museumsListAPIEndpoint = serverURL + "api/museums"
